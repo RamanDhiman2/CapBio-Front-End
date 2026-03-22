@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Capbio Advanced Biotech</title>
+    <meta name="description" content="Login to your Capbio account to order medicines and track your health.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .auth-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 480px;
+            backdrop-filter: blur(20px);
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .auth-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            padding: 1rem 1rem 1rem 3rem;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-icon {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .form-options a {
+            color: var(--accent-teal);
+            transition: var(--transition);
+        }
+
+        .form-options a:hover {
+            color: var(--accent-green);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .auth-links {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .auth-links a {
+            color: var(--accent-teal);
+            font-weight: 500;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .back-home:hover {
+            color: var(--accent-teal);
+        }
+
+        @media (max-width: 576px) {
+            .auth-wrapper {
+                padding-top: 5rem;
+            }
+
+            .back-home {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <section class="auth-wrapper">
+                <a href="../index.html" class="back-home"><i class="ri-arrow-left-line"></i> Back to Home</a>
+
+                <div class="auth-card fade-up">
+                    <a href="../index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+                        <img src="../admin/pics/capbioLight.png" alt="CapBio" style="height: 90px;">
+                    </a>
+                    <h2 class="gradient-text">Welcome Back</h2>
+                    <p>Enter your details to access your account.</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <i class="ri-mail-line form-icon"></i>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <i class="ri-lock-2-line form-icon"></i>
+                            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox"> Remember me
+                            </label>
+                            <a href="forgot-password.html">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="primary-btn magnetic" style="width: 100%;">
+                            <span>Sign In</span>
+                            <i class="ri-login-circle-line"></i>
+                        </button>
+                    </form>
+
+                    <div class="auth-links">
+                        Don't have an account? <a href="register.html">Create Account</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>

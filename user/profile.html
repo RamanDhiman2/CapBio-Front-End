@@ -4,314 +4,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile | Shapehugs European Boutique Fashion</title>
+    <title>User Profile | Capbio Advanced Biotech</title>
+    <meta name="description" content="Manage your Capbio account details, orders, and health records.">
+
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .inner-page-hero {
+            padding-top: 12rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-title {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .breadcrumb {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-teal);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Profile Layout */
+        .profile-section {
+            padding: 2rem 0 6rem;
+        }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        /* Sidebar Sidebar */
+        .profile-sidebar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            height: fit-content;
+            position: sticky;
+            top: 6rem;
+        }
+
+        .user-info-brief {
+            text-align: center;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-green));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1rem;
+            font-weight: 600;
+        }
+
+        .user-info-brief h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .user-info-brief p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .profile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .profile-nav li a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .profile-nav li a:hover,
+        .profile-nav li a.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-teal);
+        }
+
+        .profile-nav li a i {
+            font-size: 1.25rem;
+        }
+
+        /* Main Content */
+        .profile-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-content-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .profile-content-header h2 {
+            font-size: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .info-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .info-block .info-value {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .recent-orders {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .order-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .order-card:hover {
+            border-color: var(--accent-teal);
+        }
+
+        .status-badge {
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-delivered {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+        }
+
+        @media (max-width: 991px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .order-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Dropdown Styles */
+        .nav-item-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0.5rem;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 100;
+        }
+
+        .nav-item-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding-left: 1.25rem;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Announcement Bar -->
-    <div class="announcement-bar">
-        FREE SHIPPING ON ORDERS OVER $99 | NEW SPRING ARRIVALS
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-3"></div>
     </div>
 
     <!-- Navigation -->
-    <header class="main-nav">
-        <div class="container">
-            <div class="nav-top">
-                <div class="nav-col-left">
-                    <div class="mobile-toggle d-lg-none" id="mobile-toggle">
-                        <i class="fa-solid fa-bars"></i>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <i class="ri-capsule-fill logo-icon"></i>
+                Capbio<span class="dot">.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link" data-text="Home">Home</a>
+                <a href="about.html" class="nav-link" data-text="About Us">About Us</a>
+                <div class="nav-item-dropdown">
+                    <a href="products.html" class="nav-link" data-text="Products">Products <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html#antibiotics" class="dropdown-item">Antibiotics</a>
+                        <a href="products.html#nutraceuticals" class="dropdown-item">Nutraceuticals</a>
+                        <a href="products.html#cardiac" class="dropdown-item">Cardiac Care</a>
+                        <a href="products.html#syrups" class="dropdown-item">Syrups & Liquids</a>
+                        <a href="products.html#injectables" class="dropdown-item">Injectables</a>
                     </div>
-                    <div class="nav-search-trigger d-none d-lg-flex" id="search-trigger">
-                        <i class="fa-solid fa-search"></i>
-                        <span class="small fw-medium text-uppercase letter-spacing-1">Search</span>
-                    </div>
-                    <a href="../index.html" class="nav-back d-none d-sm-flex"><i class="fa-solid fa-arrow-left me-2"></i> Back to Shop</a>
                 </div>
-                <div class="nav-logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a></div>
-                <div class="nav-icons-right">
-                    <div class="search-trigger-mobile d-lg-none" id="search-trigger-mobile">
-                        <i class="fa-solid fa-search"></i>
-                    </div>
-                    <a href="profile.html"><i class="fa-solid fa-user"></i></a>
-                    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-                    <div class="cart-trigger" id="cart-trigger">
-                        <i class="fa-solid fa-shopping-bag"></i>
-                        <span class="cart-badge" id="cart-badge">0</span>
-                    </div>
+                <a href="franchise.html" class="nav-link" data-text="PCD Franchise">PCD Franchise</a>
+                <a href="contact.html" class="nav-link" data-text="Contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-btn magnetic" aria-label="Search"><i class="ri-search-line"></i></button>
+                <a href="cart.html" class="icon-btn magnetic cart-btn" aria-label="Cart">
+                    <i class="ri-shopping-bag-3-line"></i>
+                    <span class="badge">2</span>
+                </a>
+                <a href="profile.html" class="icon-btn magnetic" aria-label="User Profile"><i class="ri-user-line"
+                        style="color: var(--accent-teal);"></i></a>
+                <button class="mobile-menu-btn"><i class="ri-menu-4-line"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <button class="close-search btn-icon"><i class="ri-close-line"></i></button>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <i class="ri-search-line search-icon"></i>
+                <input type="text" placeholder="Search medicines, categories, articles..." class="search-input">
+            </div>
+            <div class="search-suggestions">
+                <p>Popular Searches:</p>
+                <div class="suggestion-tags">
+                    <span class="tag">Antibiotics</span>
+                    <span class="tag">Vitamins</span>
+                    <span class="tag">Paracetamol</span>
+                    <span class="tag">Injections</span>
                 </div>
             </div>
         </div>
-        <nav class="nav-menu">
-            <div class="menu-mobile-header d-lg-none">
-                <span class="serif">Shapehugs</span>
-                <div id="close-menu"><i class="fa-solid fa-xmark"></i></div>
-            </div>
-            <div class="container">
-                <ul>
-                    <li class="has-submenu has-megamenu">
-                        <a href="menus/new-in.html" class="nav-link">New In</a>
-                        <div class="megamenu">
-                            <div class="megamenu-content">
-                                <div class="megamenu-col">
-                                    <h4>Trends</h4>
-                                    <ul>
-                                        <li><a href="#">Spring/Summer 2026</a></li>
-                                        <li><a href="#">The Romantic Edit</a></li>
-                                        <li><a href="#">Minimalist Chic</a></li>
-                                        <li><a href="#">Parisian Street Style</a></li>
-                                    </ul>
-                                </div>
-                                <div class="megamenu-col">
-                                    <h4>Collections</h4>
-                                    <ul>
-                                        <li><a href="#">Bridal Suite</a></li>
-                                        <li><a href="#">Vacation Shop</a></li>
-                                        <li><a href="menus/bestsellers.html">Bestsellers</a></li>
-                                        <li><a href="menus/new-in.html">New Arrivals</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="menus/bestsellers.html" class="nav-link">Bestsellers</a></li>
-                    <li class="has-submenu has-dropdown">
-                        <a href="menus/dresses.html" class="nav-link">Dresses</a>
-                        <div class="submenu">
-                            <div class="submenu-container">
-                                <div class="submenu-links">
-                                    <ul>
-                                        <li><a href="#">Midi Dresses</a></li>
-                                        <li><a href="#">Maxi Dresses</a></li>
-                                        <li><a href="#">Mini Dresses</a></li>
-                                        <li><a href="#">Occasion Wear</a></li>
-                                        <li><a href="#">Summer Sale</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="menus/tops.html" class="nav-link">Tops</a></li>
-                    <li><a href="menus/bottoms.html" class="nav-link">Bottoms</a></li>
-                    <li><a href="menus/accessories.html" class="nav-link">Accessories</a></li>
-                    <li><a href="menus/sale.html" class="nav-link" style="color: #d10000;">Sale</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    </div>
 
-    <main class="account-page">
-        <div class="container">
-            <div class="account-layout">
-                <!-- Sidebar -->
-                <aside class="account-sidebar">
-                    <h2 class="serif">Alexandra's Account</h2>
-                    <nav class="account-nav-list">
-                        <a href="profile.html" class="account-nav-item active">Personal Information</a>
-                        <a href="orders.html" class="account-nav-item">Order History</a>
-                        <a href="wishlist.html" class="account-nav-item">My Wishlist</a>
-                        <a href="address.html" class="account-nav-item">Saved Addresses</a>
-                        <a href="../index.html" class="account-nav-item" style="margin-top: 30px; color: #d10000;">Logout</a>
-                    </nav>
-                </aside>
+    <!-- Main Content -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
 
-                <!-- Content Area -->
-                <div class="account-content">
-                    <div class="account-card">
-                        <div class="card-header mb-5" style="margin-bottom: 40px;">
-                            <h3 class="serif" style="font-size: 28px;">My Profile</h3>
-                            <p class="text-muted small">Manage your personal details and account settings.</p>
+            <section class="inner-page-hero">
+                <div class="container">
+                    <h1 class="page-title gradient-text fade-up">My Profile</h1>
+                    <div class="breadcrumb fade-up">
+                        <a href="../index.html">Home</a> <i class="ri-arrow-right-s-line"></i> <span>Dashboard</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <div class="container profile-layout">
+
+                    <!-- Sidebar -->
+                    <aside class="profile-sidebar fade-up">
+                        <div class="user-info-brief">
+                            <div class="user-avatar">JD</div>
+                            <h3>John Doe</h3>
+                            <p>john.doe@example.com</p>
                         </div>
-                        
-                        <form id="profile-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text" value="Alexandra">
-                                </div>
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" value="Romano">
-                                </div>
+                        <ul class="profile-nav">
+                            <li><a href="#" class="active"><i class="ri-dashboard-line"></i> Dashboard</a></li>
+                            <li><a href="#"><i class="ri-shopping-bag-line"></i> My Orders</a></li>
+                            <li><a href="#"><i class="ri-map-pin-line"></i> Manage Addresses</a></li>
+                            <li><a href="#"><i class="ri-secure-payment-line"></i> Payment Methods</a></li>
+                            <li><a href="#"><i class="ri-file-list-3-line"></i> Lab Reports</a></li>
+                            <li><a href="#"><i class="ri-settings-4-line"></i> Settings</a></li>
+                            <li><a href="login.html" style="color: #ef4444; margin-top: 1rem;"><i
+                                        class="ri-logout-box-r-line"></i> Logout</a></li>
+                        </ul>
+                    </aside>
+
+                    <!-- Content -->
+                    <div class="profile-content fade-up" style="animation-delay: 0.1s;">
+
+                        <div class="profile-content-header">
+                            <h2>Personal Information</h2>
+                            <p class="section-desc">Manage your personal details and contact information.</p>
+                        </div>
+
+                        <div class="info-grid">
+                            <div class="info-block">
+                                <label>First Name</label>
+                                <div class="info-value">John</div>
                             </div>
-                            
-                            <div class="form-group">
+                            <div class="info-block">
+                                <label>Last Name</label>
+                                <div class="info-value">Doe</div>
+                            </div>
+                            <div class="info-block">
                                 <label>Email Address</label>
-                                <input type="email" value="alexandra.r@example.com">
-                                <p class="small text-muted mt-2">Verified account email</p>
+                                <div class="info-value">john.doe@example.com</div>
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="tel" value="+1 (555) 123-4567">
-                                </div>
-                                <div class="form-group">
-                                    <label>Date of Birth</label>
-                                    <input type="date" value="1995-05-12">
+                            <div class="info-block">
+                                <label>Phone Number</label>
+                                <div class="info-value">+91 98765 43210</div>
+                            </div>
+                            <div class="info-block" style="grid-column: 1 / -1;">
+                                <label>Default Address</label>
+                                <div class="info-value">124 Biotech Park, Phase 2, Cyber City, Gurgaon, India - 122002
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-group mt-4" style="margin-top: 20px;">
-                                <label class="d-flex align-items-center" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                                    <input type="checkbox" checked style="width: auto;">
-                                    <span style="font-size: 13px; text-transform: none; letter-spacing: 0;">Subscribe to Bandy newsletter for exclusive offers</span>
-                                </label>
+                        <button class="outline-btn magnetic mt-4">Edit Profile</button>
+
+                        <div class="recent-orders">
+                            <h3 class="mb-4">Recent Orders</h3>
+
+                            <div class="order-card">
+                                <div>
+                                    <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.25rem;">Order
+                                        #ORD-2026-9821</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">2 Items • Placed on
+                                        Oct 12, 2026</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div
+                                        style="font-weight: 700; color: var(--accent-teal); font-size: 1.2rem; margin-bottom: 0.5rem;">
+                                        ₹638.50</div>
+                                    <span class="status-badge status-delivered">Delivered</span>
+                                </div>
                             </div>
 
-                            <div class="mt-5" style="margin-top: 40px;">
-                                <button type="submit" class="btn-primary">Update Profile</button>
+                            <div class="order-card">
+                                <div>
+                                    <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.25rem;">Order
+                                        #ORD-2026-7734</div>
+                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Comprehensive Body
+                                        Checkup • Booked Oct 01, 2026</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div
+                                        style="font-weight: 700; color: var(--accent-teal); font-size: 1.2rem; margin-bottom: 0.5rem;">
+                                        ₹1499.00</div>
+                                    <span class="status-badge status-delivered">Report Generated</span>
+                                </div>
                             </div>
-                        </form>
+
+                        </div>
+
                     </div>
 
-                    <!-- Security Section -->
-                    <div class="account-card mt-5" style="margin-top: 40px;">
-                        <h3 class="serif mb-4" style="margin-bottom: 25px;">Security</h3>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <p class="fw-bold mb-1">Password</p>
-                                <p class="text-muted small">Last changed 3 months ago</p>
-                            </div>
-                            <button class="btn-outline" style="padding: 10px 20px; background: none; border: 1px solid var(--border-color); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; cursor: pointer;">Change Password</button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="contact" class="footer">
+                <div class="footer-top container">
+                    <div class="footer-col brand-col">
+                        <a href="../index.html" class="logo footer-logo">
+                            <i class="ri-capsule-fill logo-icon"></i>
+                            Capbio<span class="dot">.</span>
+                        </a>
+                        <p>Empowering healthcare with advanced biotechnology. Quality medicines, delivered to your door.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="magnetic"><i class="ri-facebook-fill"></i></a>
+                            <a href="#" class="magnetic"><i class="ri-twitter-x-line"></i></a>
+                            <a href="#" class="magnetic"><i class="ri-linkedin-fill"></i></a>
+                            <a href="#" class="magnetic"><i class="ri-instagram-line"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="products.html">Our Products</a></li>
+                            <li><a href="franchise.html">PCD Franchise</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="order-medicines.html">Order Medicines</a></li>
+                            <li><a href="healthcare-devices.html">Healthcare Devices</a></li>
+                            <li><a href="lab-tests.html">Lab Tests</a></li>
+                            <li><a href="doctor-consultations.html">Doctor Consultations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact Us</h4>
+                        <ul class="contact-info">
+                            <li><i class="ri-map-pin-line"></i> 124 Biotech Park, Cyber City, India</li>
+                            <li><i class="ri-phone-line"></i> +91 1800-CAP-BIO</li>
+                            <li><i class="ri-mail-send-line"></i> hello@capbio.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="big-footer-text">CAPBIO</div>
+                    <div class="footer-copyright container">
+                        <p>&copy; 2026 Capbio Pharmaceutical Ltd. All rights reserved.</p>
+                        <div class="legal-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </footer>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4 class="nav-logo" style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
-                        <a href="../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
-                    </h4>
-                    <p>European boutique fashion for the modern woman. Effortless, romantic, and timeless.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="footer/about-us.html">About Us</a></li>
-                        <li><a href="footer/our-story.html">Our Story</a></li>
-                        <li><a href="footer/sustainability.html">Sustainability</a></li>
-                        <li><a href="footer/press.html">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Customer Care</h4>
-                    <ul>
-                        <li><a href="footer/contact-us.html">Contact Us</a></li>
-                        <li><a href="footer/shipping-policy.html">Shipping Policy</a></li>
-                        <li><a href="footer/returns-exchanges.html">Returns & Exchanges</a></li>
-                        <li><a href="footer/faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="footer/terms-of-use.html">Terms of Use</a></li>
-                        <li><a href="footer/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="footer/cookies.html">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Join the list</h4>
-                    <p>Subscribe for early access and styling tips.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address">
-                        <button type="submit">Join</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Shapehugs. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="search-overlay">
-        <div class="search-close" id="search-close">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-        <div class="search-container">
-            <div class="search-input-wrapper">
-                <input type="text" id="search-input" placeholder="Search for products, categories..."
-                    autocomplete="off">
-                <div class="search-line"></div>
-            </div>
-            <div class="search-results-container" id="search-results">
-                <!-- Search results will appear here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- GSAP for smooth reveal -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../assets/js/main.js"></script>
-
-    <!-- Cart Drawer -->
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-header">
-            <h2 class="serif">Your Bag</h2>
-            <div class="cart-close" id="cart-close">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-        </div>
-        <div class="cart-items-wrapper">
-            <div class="cart-items" id="cart-items">
-                <div class="empty-cart-message">
-                    <p>Your bag is currently empty.</p>
-                    <a href="menus/new-in.html" class="btn-underline">Shop New Arrivals</a>
-                </div>
-            </div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Subtotal</span>
-                <span id="cart-total-amount">$0.00</span>
-            </div>
-            <a href="cart.html" class="checkout-btn" style="text-decoration: none; text-align: center; display: block;">Proceed to Checkout</a>
-            <p class="cart-shipping-note">Free shipping & returns on all orders over $99.</p>
-        </div>
-    </div>
-    <div class="drawer-overlay" id="drawer-overlay"></div>
-
-    <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quick-view-modal">
-        <div class="modal-content">
-            <div class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></div>
-            <div class="modal-body" id="modal-body">
-                <!-- Content will be injected by JS -->
-            </div>
-        </div>
-    </div>
-    <script>
-        gsap.from(".account-sidebar, .account-card", {
-            duration: 1,
-            opacity: 0,
-            y: 30,
-            stagger: 0.15,
-            ease: "power3.out"
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>

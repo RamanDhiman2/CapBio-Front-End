@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Capbio Advanced Biotech</title>
-    <meta name="description"
-        content="Review your medicines and products in the cart before checking out safely on Capbio.">
+    <title>Lab Tests | Capbio Advanced Biotech</title>
+    <meta name="description" content="Book precise and affordable lab tests with home sample collection from Capbio.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,172 +50,56 @@
             color: var(--accent-green);
         }
 
-        .cart-section {
-            padding: 2rem 0 6rem;
-        }
-
-        .cart-grid {
+        .package-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-
-        .cart-items {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .item-info {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .item-img {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--accent-teal);
-        }
-
-        .item-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-
-        .item-details p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .item-actions {
-            display: flex;
-            align-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .qty-control {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-glass);
-            border-radius: 100px;
-            padding: 0.5rem 1rem;
-        }
-
-        .qty-btn {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .qty-btn:hover {
-            color: var(--accent-teal);
-        }
-
-        .item-price {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--accent-green);
-        }
-
-        .remove-btn {
-            background: none;
-            border: none;
-            color: #ef4444;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .remove-btn:hover {
-            color: #dc2626;
-            transform: scale(1.1);
-        }
-
-        /* Order Summary */
-        .order-summary {
+        .package-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2rem;
-            backdrop-filter: blur(10px);
-            height: fit-content;
-            position: sticky;
-            top: 6rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .order-summary h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+        }
+
+        .package-header {
             border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .summary-total {
-            display: flex;
-            justify-content: space-between;
-            margin: 1.5rem 0;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-glass);
-            font-size: 1.5rem;
+        .package-price {
+            font-size: 2rem;
             font-weight: 700;
             color: var(--accent-teal);
         }
 
-        @media (max-width: 991px) {
-            .cart-grid {
-                grid-template-columns: 1fr;
-            }
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
         }
 
-        @media (max-width: 576px) {
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
+        .package-features li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-            .item-actions {
-                width: 100%;
-                justify-content: space-between;
-            }
+        .package-features li i {
+            color: var(--accent-green);
         }
 
         /* Dropdown Styles */
@@ -291,7 +174,7 @@
                 <a href="../index.html" class="nav-link" data-text="Home">Home</a>
                 <a href="about.html" class="nav-link" data-text="About Us">About Us</a>
                 <div class="nav-item-dropdown">
-                    <a href="products.html" class="nav-link" data-text="Products">Products <i class="ri-arrow-down-s-line"></i></a>
+                    <p class="nav-link" data-text="Products">Products <i class="ri-arrow-down-s-line"></i></p>
                     <div class="dropdown-menu">
                         <a href="products.html#antibiotics" class="dropdown-item">Antibiotics</a>
                         <a href="products.html#nutraceuticals" class="dropdown-item">Nutraceuticals</a>
@@ -307,7 +190,7 @@
             <div class="nav-actions">
                 <button class="icon-btn magnetic" aria-label="Search"><i class="ri-search-line"></i></button>
                 <a href="cart.html" class="icon-btn magnetic cart-btn" aria-label="Cart">
-                    <i class="ri-shopping-bag-3-fill" style="color: var(--accent-teal);"></i>
+                    <i class="ri-shopping-bag-3-line"></i>
                     <span class="badge">2</span>
                 </a>
                 <a href="login.html" class="icon-btn magnetic" aria-label="User Profile"><i
@@ -343,95 +226,66 @@
 
             <section class="inner-page-hero">
                 <div class="container">
-                    <h1 class="page-title gradient-text fade-up">Your Cart</h1>
+                    <h1 class="page-title gradient-text fade-up">Diagnostic Lab Tests</h1>
                     <div class="breadcrumb fade-up">
-                        <a href="../index.html">Home</a> <i class="ri-arrow-right-s-line"></i> <span>Shopping
-                            Cart</span>
+                        <a href="../index.html">Home</a> <i class="ri-arrow-right-s-line"></i> <span>Lab Tests</span>
                     </div>
+                    <p class="section-desc mt-4 fade-up" style="max-width: 600px; margin-inline: auto;">Get accurate
+                        results with our certified diagnostic labs. We offer safe and convenient home sample collection.
+                    </p>
                 </div>
             </section>
 
-            <section class="cart-section">
+            <section class="packages-listing">
                 <div class="container">
-                    <div class="cart-grid">
-
-                        <!-- Cart Items -->
-                        <div class="cart-items fade-up">
-
-                            <div class="cart-item">
-                                <div class="item-info">
-                                    <div class="item-img"><i class="ri-medicine-bottle-line"></i></div>
-                                    <div class="item-details">
-                                        <h4>Vitamin C Complexe</h4>
-                                        <p>Immunity Booster • 30 Capsules</p>
-                                    </div>
-                                </div>
-                                <div class="item-actions">
-                                    <div class="qty-control">
-                                        <button class="qty-btn"><i class="ri-subtract-line"></i></button>
-                                        <span>2</span>
-                                        <button class="qty-btn"><i class="ri-add-line"></i></button>
-                                    </div>
-                                    <div class="item-price">₹450</div>
-                                    <button class="remove-btn" title="Remove item"><i
-                                            class="ri-delete-bin-7-line"></i></button>
-                                </div>
+                    <div class="package-grid">
+                        <!-- Package 1 -->
+                        <div class="package-card fade-up">
+                            <div class="package-header">
+                                <h3>Comprehensive Full Body Checkup</h3>
+                                <div class="package-price">₹1499</div>
+                                <p class="section-desc" style="font-size: 0.9rem;">Includes 75 parameters</p>
                             </div>
-
-                            <div class="cart-item">
-                                <div class="item-info">
-                                    <div class="item-img"><i class="ri-capsule-line"></i></div>
-                                    <div class="item-details">
-                                        <h4>Antibiotic Ointment</h4>
-                                        <p>First Aid • 15g Tube</p>
-                                    </div>
-                                </div>
-                                <div class="item-actions">
-                                    <div class="qty-control">
-                                        <button class="qty-btn"><i class="ri-subtract-line"></i></button>
-                                        <span>1</span>
-                                        <button class="qty-btn"><i class="ri-add-line"></i></button>
-                                    </div>
-                                    <div class="item-price">₹120</div>
-                                    <button class="remove-btn" title="Remove item"><i
-                                            class="ri-delete-bin-7-line"></i></button>
-                                </div>
-                            </div>
-
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> Complete Blood Count (CBC)</li>
+                                <li><i class="ri-check-line"></i> Lipid Profile</li>
+                                <li><i class="ri-check-line"></i> Liver Function Test</li>
+                                <li><i class="ri-check-line"></i> Thyroid Profile</li>
+                            </ul>
+                            <button class="outline-btn magnetic" style="width: 100%;">Book Now</button>
                         </div>
 
-                        <!-- Order Summary -->
-                        <div class="order-summary fade-up" style="animation-delay: 0.1s;">
-                            <h3>Order Summary</h3>
-
-                            <div class="summary-row">
-                                <span>Subtotal (3 items)</span>
-                                <span>₹570.00</span>
+                        <!-- Package 2 -->
+                        <div class="package-card fade-up">
+                            <div class="package-header">
+                                <h3>Diabetes Screening Profile</h3>
+                                <div class="package-price">₹599</div>
+                                <p class="section-desc" style="font-size: 0.9rem;">Includes 12 parameters</p>
                             </div>
-                            <div class="summary-row">
-                                <span>Delivery Fee</span>
-                                <span>₹40.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Taxes</span>
-                                <span>₹28.50</span>
-                            </div>
-
-                            <div class="summary-total">
-                                <span>Total</span>
-                                <span>₹638.50</span>
-                            </div>
-
-                            <button class="primary-btn magnetic" style="width: 100%;">
-                                <span>Proceed to Checkout</span>
-                                <i class="ri-secure-payment-line"></i>
-                            </button>
-                            <a href="products.html" class="outline-btn magnetic mt-3"
-                                style="width: 100%; display: flex; justify-content: center;">
-                                Continue Shopping
-                            </a>
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> Fasting Blood Sugar</li>
+                                <li><i class="ri-check-line"></i> HbA1c</li>
+                                <li><i class="ri-check-line"></i> Lipid Profile</li>
+                                <li><i class="ri-check-line"></i> Urine Routine</li>
+                            </ul>
+                            <button class="outline-btn magnetic" style="width: 100%;">Book Now</button>
                         </div>
 
+                        <!-- Package 3 -->
+                        <div class="package-card fade-up">
+                            <div class="package-header">
+                                <h3>Vitamin Deficiency Profile</h3>
+                                <div class="package-price">₹899</div>
+                                <p class="section-desc" style="font-size: 0.9rem;">Includes 5 parameters</p>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> Vitamin B12</li>
+                                <li><i class="ri-check-line"></i> Vitamin D Total</li>
+                                <li><i class="ri-check-line"></i> Calcium</li>
+                                <li><i class="ri-check-line"></i> Iron Profile</li>
+                            </ul>
+                            <button class="outline-btn magnetic" style="width: 100%;">Book Now</button>
+                        </div>
                     </div>
                 </div>
             </section>

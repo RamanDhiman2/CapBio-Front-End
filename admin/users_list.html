@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Directory | Capbio Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../user/assets/style.css">
+    <link rel="stylesheet" href="assets/admin.css">
+</head>
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-3"></div>
+    </div>
+
+    <aside class="admin-sidebar">
+        <a href="index.html" class="admin-logo">
+        </a>
+        <nav class="admin-nav">
+            <ul class="admin-nav-list">
+                <li><a href="index.html" class="admin-nav-link"><i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="products_list.html" class="admin-nav-link"><i class="ri-medicine-bottle-line"></i> <span>Products</span></a></li>
+                <li><a href="orders_manage.html" class="admin-nav-link"><i class="ri-shopping-cart-2-line"></i> <span>Orders</span></a></li>
+                <li><a href="users_list.html" class="admin-nav-link active"><i class="ri-group-line"></i> <span>Users</span></a></li>
+                <li class="nav-item-dropdown">
+                    <a href="javascript:void(0)" class="admin-nav-link dropdown-trigger">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="ri-list-check-2"></i> <span>Categories</span>
+                        </div>
+                        <i class="ri-arrow-down-s-line arrow-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="category_list.html?cat=antibiotics" class="dropdown-item">Antibiotics</a></li>
+                        <li><a href="category_list.html?cat=nutraceuticals" class="dropdown-item">Nutraceuticals</a></li>
+                        <li><a href="category_list.html?cat=cardiac" class="dropdown-item">Cardiac Care</a></li>
+                        <li><a href="category_list.html?cat=pediatric" class="dropdown-item">Pediatric Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="franchise_requests.html" class="admin-nav-link"><i class="ri-hand-heart-line"></i> <span>Franchise</span></a></li>
+            </ul>
+        </nav>
+        <div class="admin-exit">
+            <a href="../index.html" class="admin-nav-link"><i class="ri-logout-box-r-line"></i> <span>Exit Admin</span></a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div>
+                <h1>Users Directory</h1>
+                <p>Manage patient accounts and activity logs.</p>
+            </div>
+            <div class="admin-profile">
+                <div class="profile-avatar">AD</div>
+                <span>Administrator</span>
+            </div>
+        </header>
+
+        <div class="admin-card">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Total Orders</th>
+                        <th>Joined</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: #eee; color: #333; display: flex; align-items: center; justify-content: center; font-weight: 700;">RK</div>
+                            Rajesh Kumar
+                        </td>
+                        <td>rajesh@example.com</td>
+                        <td>12</td>
+                        <td>12 Jan 2026</td>
+                        <td>Patient</td>
+                        <td><span class="status-badge status-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: #eee; color: #333; display: flex; align-items: center; justify-content: center; font-weight: 700;">SD</div>
+                            Sunita Devi
+                        </td>
+                        <td>sunita@example.com</td>
+                        <td>4</td>
+                        <td>15 Feb 2026</td>
+                        <td>Patient</td>
+                        <td><span class="status-badge status-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: #eee; color: #333; display: flex; align-items: center; justify-content: center; font-weight: 700;">AS</div>
+                            Anand Singh
+                        </td>
+                        <td>anand@example.com</td>
+                        <td>0</td>
+                        <td>01 Mar 2026</td>
+                        <td>Patient</td>
+                        <td><span class="status-badge status-danger">Suspended</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Dropdown Logic
+        const dropdownTrigger = document.querySelector('.dropdown-trigger');
+        const dropdownParent = document.querySelector('.nav-item-dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        dropdownTrigger.addEventListener('click', () => {
+            dropdownParent.classList.toggle('open');
+            dropdownMenu.classList.toggle('active');
+            
+            if(dropdownMenu.classList.contains('active')) {
+                gsap.from(".dropdown-item", {
+                    x: -10,
+                    opacity: 0,
+                    stagger: 0.05,
+                    duration: 0.3
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,445 +4,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shapehugs | European Boutique Fashion</title>
+    <title>Capbio | Advanced Biotech & Pharmaceuticals</title>
+    <meta name="description"
+        content="Capbio - WHO GMP Certified Pharma Manufacturer & Modern Pharmacy. Empowering health with advanced molecules and fast distribution.">
+
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="user/assets/style.css">
+    <style>
+        /* Dropdown Styles */
+        .nav-item-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0.5rem;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 100;
+        }
+
+        .nav-item-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding-left: 1.25rem;
+        }
+    </style>
 </head>
 
-<body>
 
-    <!-- Announcement Bar -->
-    <div class="announcement-bar">
-        FREE SHIPPING ON ORDERS OVER $99 | NEW SPRING ARRIVALS
+<div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <i class="ri-capsule-fill logo-icon"></i>
+            Capbio<span class="dot">.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link" data-text="Home">Home</a>
+            <a href="user/about.html" class="nav-link" data-text="About Us">About Us</a>
+            <div class="nav-item-dropdown">
+                <a href="user/products.html" class="nav-link" data-text="Products">Products <i class="ri-arrow-down-s-line"></i></a>
+                <div class="dropdown-menu">
+                    <a href="user/products.html#antibiotics" class="dropdown-item">Antibiotics</a>
+                    <a href="user/products.html#nutraceuticals" class="dropdown-item">Nutraceuticals</a>
+                    <a href="user/products.html#cardiac" class="dropdown-item">Cardiac Care</a>
+                    <a href="user/products.html#syrups" class="dropdown-item">Syrups & Liquids</a>
+                    <a href="user/products.html#injectables" class="dropdown-item">Injectables</a>
+                </div>
+            </div>
+            <a href="user/franchise.html" class="nav-link" data-text="PCD Franchise">PCD Franchise</a>
+            <a href="user/contact.html" class="nav-link" data-text="Contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn magnetic" aria-label="Search"><i class="ri-search-line"></i></button>
+            <a href="user/cart.html" class="icon-btn magnetic cart-btn" aria-label="Cart">
+                <i class="ri-shopping-bag-3-line"></i>
+                <span class="badge">2</span>
+            </a>
+            <a href="user/login.html" class="icon-btn magnetic" aria-label="User Profile"><i
+                    class="ri-user-line"></i></a>
+            <button class="mobile-menu-btn"><i class="ri-menu-4-line"></i></button>
+        </div>
     </div>
+</nav>
 
-    <!-- Navigation -->
-    <header class="main-nav">
-        <div class="container">
-            <div class="nav-top">
-                <div class="nav-col-left">
-                    <div class="mobile-toggle d-lg-none" id="mobile-toggle">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                    <div class="nav-search-trigger d-none d-lg-flex" id="search-trigger">
-                        <i class="fa-solid fa-search"></i>
-                        <span class="small fw-medium text-uppercase letter-spacing-1">Search</span>
-                    </div>
+<!-- Search Overlay -->
+<div class="search-overlay">
+    <button class="close-search btn-icon"><i class="ri-close-line"></i></button>
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <i class="ri-search-line search-icon"></i>
+            <input type="text" placeholder="Search medicines, categories, articles..." class="search-input">
+        </div>
+        <div class="search-suggestions">
+            <p>Popular Searches:</p>
+            <div class="suggestion-tags">
+                <span class="tag">Antibiotics</span>
+                <span class="tag">Vitamins</span>
+                <span class="tag">Paracetamol</span>
+                <span class="tag">Injections</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<main id="smooth-wrapper">
+    <div id="smooth-content">
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="subtitle-badge hide-on-init">
+                    <span class="pulse-dot"></span>
+                    WHO GMP Certified Manufacturer
                 </div>
-
-                <div class="nav-logo"><a href="index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                <h1 class="hero-title">
+                    <span class="line-1">Redefining</span>
+                    <span class="line-2">Healthcare with</span>
+                    <span class="line-3 gradient-text">Biotech Innovation</span>
+                </h1>
+                <p class="hero-desc hide-on-init">
+                    We combine the expertise of Janus Pharmaceuticals with the efficiency of Pharmeasy. Your health,
+                    engineered with precision.
+                </p>
+                <div class="hero-btns hide-on-init">
+                    <button class="primary-btn btn-lg magnetic">
+                        <span>Explore Products</span>
+                    </button>
+                    <button class="outline-btn btn-lg magnetic video-btn">
+                        <i class="ri-play-fill"></i>
+                        <span>Watch Story</span>
+                    </button>
                 </div>
+            </div>
 
-                <div class="nav-icons-right">
-                    <div class="search-trigger-mobile d-lg-none" id="search-trigger-mobile">
-                        <i class="fa-solid fa-search"></i>
-                    </div>
-                    <a href="user/profile.html"><i class="fa-regular fa-user d-none d-sm-block"></i></a>
-                    <a href="user/wishlist.html" class="nav-icon-link"><i
-                            class="fa-regular fa-heart d-none d-sm-block"></i></a>
-                    <div class="cart-trigger" id="cart-trigger">
-                        <i class="fa-solid fa-shopping-bag"></i>
-                        <span class="cart-badge" id="cart-badge">0</span>
-                    </div>
+            <div class="hero-visuals hide-on-init">
+                <div class="glass-card main-card">
+                    <div class="card-glow"></div>
+                    <i class="ri-microscope-line visual-icon"></i>
+                    <h3>Advanced R&D</h3>
+                    <p>Cutting-edge clinical research & molecules.</p>
+                </div>
+                <div class="glass-card side-card-1">
+                    <i class="ri-truck-line visual-icon"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Pan-India 24hr delivery network.</p>
+                </div>
+                <div class="glass-card side-card-2">
+                    <i class="ri-shield-check-line visual-icon"></i>
+                    <h3>Certified Quality</h3>
+                    <p>100% Quality Assurance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats/Marquee Section -->
+        <div class="marquee-section">
+            <div class="marquee-inner">
+                <div class="marquee-content">
+                    <span>WHO GMP CERTIFIED</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>3500+ PRODUCTS</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>1500+ ASSOCIATES</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>PAN INDIA DELIVERY</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>100% QUALITY ASSURANCE</span><i class="ri-star-s-fill dot-icon"></i>
+                </div>
+                <div class="marquee-content">
+                    <span>WHO GMP CERTIFIED</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>3500+ PRODUCTS</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>1500+ ASSOCIATES</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>PAN INDIA DELIVERY</span><i class="ri-star-s-fill dot-icon"></i>
+                    <span>100% QUALITY ASSURANCE</span><i class="ri-star-s-fill dot-icon"></i>
                 </div>
             </div>
         </div>
-        <nav class="nav-menu">
-            <div class="menu-mobile-header d-lg-none">
-                <span class="serif">Shapehugs</span>
-                <div id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container section-grid">
+                <div class="about-visual">
+                    <div class="image-wrapper reveal-image">
+                        <!-- Placeholder for biotech image via CSS gradient -->
+                        <div class="placeholder-img about-img"></div>
+                        <div class="experience-badge">
+                            <span class="num counter" data-target="100">0</span>
+                            <span class="text">Quality<br>Focus</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h4 class="section-subtitle">Our Journey</h4>
+                    <h2 class="section-title reveal-text">Built on Innovation <br>for the Future</h2>
+                    <p class="section-desc fade-up">
+                        Capbio was founded with a mission to make high-quality healthcare accessible. Drawing
+                        inspiration
+                        from industry leaders like Janus Biotech, we are establishing ourselves as a premier WHO-GMP
+                        certified
+                        pharmaceutical hub. Our commitment bridges cutting-edge molecule discovery with
+                        direct-to-patient pharmacy logistics.
+                    </p>
+                    <ul class="feature-list fade-up">
+                        <li><i class="ri-check-double-line"></i> 17 Specialized Divisions</li>
+                        <li><i class="ri-check-double-line"></i> State-of-the-art Manufacturing</li>
+                        <li><i class="ri-check-double-line"></i> Rigorous Quality Control</li>
+                    </ul>
+                    <button class="primary-btn magnetic mt-4 fade-up">
+                        <span>Read Full Story</span><i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
             </div>
+        </section>
+
+        <!-- Products Categories Slider Section -->
+        <section id="products" class="products">
             <div class="container">
-                <ul>
-                    <li class="has-submenu has-megamenu">
-                        <a href="user/menus/new-in.html" class="nav-link">New In</a>
-                        <div class="megamenu">
-                            <div class="megamenu-content">
-                                <div class="megamenu-col">
-                                    <h4>Trends</h4>
-                                    <ul>
-                                        <li><a href="#">Spring/Summer 2026</a></li>
-                                        <li><a href="#">The Romantic Edit</a></li>
-                                        <li><a href="#">Minimalist Chic</a></li>
-                                        <li><a href="#">Parisian Street Style</a></li>
-                                    </ul>
-                                </div>
-                                <div class="megamenu-col">
-                                    <h4>Collections</h4>
-                                    <ul>
-                                        <li><a href="#">Bridal Suite</a></li>
-                                        <li><a href="#">Vacation Shop</a></li>
-                                        <li><a href="user/menus/bestsellers.html">Bestsellers</a></li>
-                                        <li><a href="user/menus/new-in.html">New Arrivals</a></li>
-                                    </ul>
-                                </div>
+                <div class="section-header fade-up">
+                    <div>
+                        <h4 class="section-subtitle">Our Medicine Portfolio</h4>
+                        <h2 class="section-title">Explore Specialized <br>Product Range</h2>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn magnetic"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="slider-btn next-btn magnetic"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+
+                <div class="swiper product-swiper fade-up">
+                    <div class="swiper-wrapper">
+                        <!-- Product 1 -->
+                        <div class="swiper-slide list-card hover-3d">
+                            <div class="card-inner">
+                                <div class="product-icon color-1"><i class="ri-medicine-bottle-fill"></i></div>
+                                <h3>Antibiotics</h3>
+                                <p>Advanced range of high-efficacy antibacterials.</p>
+                                <a href="#" class="explore-link">Explore <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
-                    </li>
-                    <li><a href="user/menus/bestsellers.html" class="nav-link">Bestsellers</a></li>
-                    <li class="has-submenu has-dropdown">
-                        <a href="user/menus/dresses.html" class="nav-link">Dresses</a>
-                        <div class="submenu">
-                            <div class="submenu-container">
-                                <div class="submenu-links">
-                                    <ul>
-                                        <li><a href="#">Midi Dresses</a></li>
-                                        <li><a href="#">Maxi Dresses</a></li>
-                                        <li><a href="#">Mini Dresses</a></li>
-                                        <li><a href="#">Occasion Wear</a></li>
-                                        <li><a href="#">Summer Sale</a></li>
-                                    </ul>
-                                </div>
+                        <!-- Product 2 -->
+                        <div class="swiper-slide list-card hover-3d">
+                            <div class="card-inner">
+                                <div class="product-icon color-2"><i class="ri-capsule-fill"></i></div>
+                                <h3>Nutraceuticals</h3>
+                                <p>Premium vitamins and daily immunity boosters.</p>
+                                <a href="#" class="explore-link">Explore <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
-                    </li>
-                    <li><a href="user/menus/tops.html" class="nav-link">Tops</a></li>
-                    <li><a href="user/menus/bottoms.html" class="nav-link">Bottoms</a></li>
-                    <li><a href="user/menus/accessories.html" class="nav-link">Accessories</a></li>
-                    <li><a href="user/menus/sale.html" class="nav-link" style="color: #d10000;">Sale</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Carousel -->
-    <section class="hero-carousel">
-        <div class="carousel-container">
-            <div class="hero-slide active">
-                <img src="assets/images/hero.png" alt="European Fashion Collection" class="hero-img">
-                <div class="hero-content">
-                    <span class="hero-label">Seasonal Exclusive</span>
-                    <h1 class="serif">The Romantic Edit</h1>
-                    <p class="hero-description">Effortless Parisienne style for the modern woman.</p>
-                    <a href="user/menus/new-in.html" class="hero-btn">Shop Collection</a>
-                </div>
-            </div>
-            <div class="hero-slide">
-                <img src="assets/images/hero2.png" alt="Spring Collection" class="hero-img">
-                <div class="hero-content">
-                    <span class="hero-label">Fresh Arrivals</span>
-                    <h1 class="serif">New Spring Arrivals</h1>
-                    <p class="hero-description">Discover the lightness of linen, lace & silk.</p>
-                    <a href="user/menus/new-in.html" class="hero-btn">Shop New In</a>
-                </div>
-            </div>
-            <div class="hero-slide">
-                <img src="assets/images/hero3.png" alt="Minimalist Style" class="hero-img">
-                <div class="hero-content">
-                    <span class="hero-label">Timeless Quality</span>
-                    <h1 class="serif">Minimalist Chic</h1>
-                    <p class="hero-description">Essential pieces designed for every wardrobe.</p>
-                    <a href="user/menus/tops.html" class="hero-btn">Explore Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-controls">
-            <div class="carousel-prev"><i class="fa-solid fa-chevron-left"></i></div>
-            <div class="carousel-next"><i class="fa-solid fa-chevron-right"></i></div>
-        </div>
-        <div class="carousel-dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="section categories-section">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="serif">Shop by Category</h2>
-                <p class="text-muted small text-uppercase letter-spacing-1">Find your perfect piece</p>
-            </div>
-            <div class="category-grid">
-                <a href="user/menus/dresses.html" class="category-card">
-                    <div class="category-img-wrapper">
-                        <img src="assets/images/cat_dresses.png" alt="Dresses">
-                        <div class="category-overlay">
-                            <h3 class="serif">Dresses</h3>
+                        <!-- Product 3 -->
+                        <div class="swiper-slide list-card hover-3d">
+                            <div class="card-inner">
+                                <div class="product-icon color-3"><i class="ri-heart-pulse-fill"></i></div>
+                                <h3>Cardiac Care</h3>
+                                <p>Trusted solutions for cardiovascular health.</p>
+                                <a href="#" class="explore-link">Explore <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="swiper-slide list-card hover-3d">
+                            <div class="card-inner">
+                                <div class="product-icon color-4"><i class="ri-flask-fill"></i></div>
+                                <h3>Syrups & Liquids</h3>
+                                <p>Effective pediatric and adult liquid formulations.</p>
+                                <a href="#" class="explore-link">Explore <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                        <!-- Product 5 -->
+                        <div class="swiper-slide list-card hover-3d">
+                            <div class="card-inner">
+                                <div class="product-icon color-5"><i class="ri-syringe-fill"></i></div>
+                                <h3>Injectables</h3>
+                                <p>Sterile manufacturing for critical care injections.</p>
+                                <a href="#" class="explore-link">Explore <i class="ri-arrow-right-line"></i></a>
+                            </div>
                         </div>
                     </div>
-                </a>
-                <a href="user/menus/tops.html" class="category-card">
-                    <div class="category-img-wrapper">
-                        <img src="assets/images/cat_tops.png" alt="Tops">
-                        <div class="category-overlay">
-                            <h3 class="serif">Tops</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="user/menus/bottoms.html" class="category-card">
-                    <div class="category-img-wrapper">
-                        <img src="assets/images/cat_bottoms.png" alt="Bottoms">
-                        <div class="category-overlay">
-                            <h3 class="serif">Bottoms</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="user/menus/accessories.html" class="category-card">
-                    <div class="category-img-wrapper">
-                        <img src="assets/images/cat_accessories.png" alt="Accessories">
-                        <div class="category-overlay">
-                            <h3 class="serif">Accessories</h3>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Collection -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="serif">Shop Bestsellers</h2>
-                <p class="text-muted small text-uppercase letter-spacing-1">Most loved pieces this season</p>
-            </div>
-
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card" data-id="1" data-name="The Sage Silk Midi" data-price="68.00"
-                    data-image="assets/images/p1.png">
-                    <div class="product-image-wrapper">
-                        <span class="product-badge">New In</span>
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="assets/images/p1.png" alt="Sage Green Dress">
-                        <div class="product-actions">
-                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
-                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                        </div>
+        <!-- Services/Franchise -->
+        <section id="franchise" class="franchise">
+            <div class="container section-grid align-center">
+                <div class="franchise-content">
+                    <h4 class="section-subtitle">PCD Pharma Franchise</h4>
+                    <h2 class="section-title reveal-text">Partner with a <br>Winning Brand</h2>
+                    <p class="section-desc fade-up">
+                        Join our network of 1500+ Business Associates. We offer monopoly rights, high-profit
+                        margins, and comprehensive promotional support to help you dominate your territory.
+                    </p>
+                    <div class="perks fade-up">
+                        <div class="perk"><i class="ri-map-pin-user-fill"></i> Monopoly Rights</div>
+                        <div class="perk"><i class="ri-megaphone-fill"></i> Promo Material</div>
+                        <div class="perk"><i class="ri-percent-fill"></i> High Margins</div>
+                        <div class="perk"><i class="ri-truck-fill"></i> Timely Dispatch</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name serif"><a href="user/product-view.html"
-                                style="color: inherit; text-decoration: none;">The Sage Silk Midi</a></h3>
-                        <p class="product-price">$68.00</p>
-                    </div>
+                    <button class="primary-btn mt-4 magnetic fade-up">Apply for Franchise</button>
                 </div>
-
-                <!-- Product 2 -->
-                <div class="product-card" data-id="2" data-name="White Lace Blouse" data-price="45.00"
-                    data-image="assets/images/p2.png">
-                    <div class="product-image-wrapper">
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="assets/images/p2.png" alt="Lace Blouse">
-                        <div class="product-actions">
-                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
-                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name serif"><a href="user/product-view.html"
-                                style="color: inherit; text-decoration: none;">White Lace Blouse</a></h3>
-                        <p class="product-price">$45.00</p>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card" data-id="3" data-name="Pleated High-Waist Skirt" data-price="54.00"
-                    data-image="assets/images/p3.png">
-                    <div class="product-image-wrapper">
-                        <span class="product-badge">Best Seller</span>
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="assets/images/p3.png" alt="Pleated Skirt">
-                        <div class="product-actions">
-                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
-                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name serif"><a href="user/product-view.html"
-                                style="color: inherit; text-decoration: none;">Pleated High-Waist Skirt</a></h3>
-                        <p class="product-price">$54.00</p>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card" data-id="4" data-name="Vintage Floral Dress" data-price="72.00"
-                    data-image="assets/images/hero.png">
-                    <div class="product-image-wrapper">
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="assets/images/hero.png" alt="Floral Dress">
-                        <div class="product-actions">
-                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
-                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name serif"><a href="user/product-view.html"
-                                style="color: inherit; text-decoration: none;">Vintage Floral Dress</a></h3>
-                        <p class="product-price">$72.00</p>
+                <div class="franchise-visual fade-up">
+                    <div class="network-globe">
+                        <!-- Abstract pure CSS representation of network connections -->
+                        <div class="center-node">Capbio</div>
+                        <div class="node n1"></div>
+                        <div class="node n2"></div>
+                        <div class="node n3"></div>
+                        <div class="node n4"></div>
+                        <div class="node n5"></div>
+                        <svg class="lines" viewBox="0 0 200 200">
+                            <line x1="100" y1="100" x2="30" y2="50" />
+                            <line x1="100" y1="100" x2="170" y2="40" />
+                            <line x1="100" y1="100" x2="180" y2="150" />
+                            <line x1="100" y1="100" x2="50" y2="170" />
+                            <line x1="100" y1="100" x2="20" y2="110" />
+                        </svg>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lookbook Section -->
-    <section class="lookbook-section">
-        <div class="lookbook-image">
-            <img src="assets/images/hero2.png" alt="Summer Lookbook">
-        </div>
-        <div class="lookbook-content">
-            <div class="lookbook-text">
-                <span class="text-uppercase letter-spacing-2 small fw-medium">The Visual Story</span>
-                <h2 class="serif">Summer Lookbook 2026</h2>
-                <p>Inspired by the golden hours of the Mediterranean coast. Discover effortless elegance in every
-                    stitch.</p>
-                <a href="user/menus/new-in.html" class="btn-underline">View Lookbook</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shipping / Benefits -->
-    <section class="section-benefits">
-        <div class="container">
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <h4>Free shipping</h4>
-                    <p>On all orders over $99</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fa-solid fa-rotate"></i>
-                    <h4>Easy Returns</h4>
-                    <p>30-day return policy</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fa-solid fa-leaf"></i>
-                    <h4>Sustainable</h4>
-                    <p>Eco-friendly packaging</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fa-solid fa-lock"></i>
-                    <h4>Secure Payment</h4>
-                    <p>100% secure checkout</p>
+        <!-- Call to Action Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-glow"></div>
+                    <h2 class="fade-up">Ready to order your medicines?</h2>
+                    <p class="fade-up">Upload your prescription and get flat 15% off on your first delivery.</p>
+                    <div class="cta-buttons fade-up">
+                        <button class="primary-btn btn-lg magnetic">Upload Prescription <i
+                                class="ri-upload-cloud-2-line"></i></button>
+                        <button class="outline-btn btn-lg magnetic">Order Online <i
+                                class="ri-medicine-bottle-line"></i></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4 class="nav-logo"
-                        style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
-                        <a href="index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
-                    </h4>
-                    <p>European boutique fashion for the modern woman. Effortless, romantic, and timeless.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="footer-top container">
+                <div class="footer-col brand-col">
+                    <a href="#" class="logo footer-logo">
+                        <i class="ri-capsule-fill logo-icon"></i>
+                        Capbio<span class="dot">.</span>
+                    </a>
+                    <p>Empowering healthcare with advanced biotechnology. Quality medicines, delivered to your door.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="magnetic"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="magnetic"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#" class="magnetic"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="magnetic"><i class="ri-instagram-line"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="user/footer/about-us.html">About Us</a></li>
-                        <li><a href="user/footer/our-story.html">Our Story</a></li>
-                        <li><a href="user/footer/sustainability.html">Sustainability</a></li>
-                        <li><a href="user/footer/press.html">Press</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="user/about.html">About Us</a></li>
+                        <li><a href="user/products.html">Our Products</a></li>
+                        <li><a href="user/franchise.html">PCD Franchise</a></li>
+                        <li><a href="user/contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Customer Care</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="user/footer/contact-us.html">Contact Us</a></li>
-                        <li><a href="user/footer/shipping-policy.html">Shipping Policy</a></li>
-                        <li><a href="user/footer/returns-exchanges.html">Returns & Exchanges</a></li>
-                        <li><a href="user/footer/faq.html">FAQ</a></li>
+                        <li><a href="user/order-medicines.html">Order Medicines</a></li>
+                        <li><a href="user/healthcare-devices.html">Healthcare Devices</a></li>
+                        <li><a href="user/lab-tests.html">Lab Tests</a></li>
+                        <li><a href="user/doctor-consultations.html">Doctor Consultations</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="user/footer/terms-of-use.html">Terms of Use</a></li>
-                        <li><a href="user/footer/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="user/footer/cookies.html">Cookies</a></li>
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="ri-map-pin-line"></i> 124 Biotech Park, Cyber City, India</li>
+                        <li><i class="ri-phone-line"></i> +91 1800-CAP-BIO</li>
+                        <li><i class="ri-mail-send-line"></i> hello@capbio.com</li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Join the list</h4>
-                    <p>Subscribe for early access and styling tips.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address">
-                        <button type="submit">Join</button>
-                    </form>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Shapehugs. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="search-overlay">
-        <div class="search-close" id="search-close">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-        <div class="search-container">
-            <div class="search-input-wrapper">
-                <input type="text" id="search-input" placeholder="Search for products, categories..."
-                    autocomplete="off">
-                <div class="search-line"></div>
-            </div>
-            <div class="search-results-container" id="search-results">
-                <!-- Search results will appear here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- GSAP for smooth reveal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <!-- Cart Drawer -->
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-header">
-            <h2 class="serif">Your Bag</h2>
-            <div class="cart-close" id="cart-close">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-        </div>
-        <div class="cart-items-wrapper">
-            <div class="cart-items" id="cart-items">
-                <!-- Cart items will be injected here -->
-                <div class="empty-cart-message">
-                    <p>Your bag is currently empty.</p>
-                    <a href="user/menus/new-in.html" class="btn-underline">Shop New Arrivals</a>
+                <div class="big-footer-text">CAPBIO</div>
+                <div class="footer-copyright container">
+                    <p>&copy; 2026 Capbio Pharmaceutical Ltd. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Subtotal</span>
-                <span id="cart-total-amount">$0.00</span>
-            </div>
-            <a href="user/cart.html" class="checkout-btn"
-                style="text-decoration: none; text-align: center; display: block;">Proceed to Checkout</a>
-            <p class="cart-shipping-note">Free shipping & returns on all orders over $99.</p>
-        </div>
+        </footer>
     </div>
-    <div class="drawer-overlay" id="drawer-overlay"></div>
+</main>
 
-    <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quick-view-modal">
-        <div class="modal-content">
-            <div class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></div>
-            <div class="modal-body" id="modal-body">
-                <!-- Content will be injected by JS -->
-            </div>
-        </div>
-    </div>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="user/assets/script.js"></script>
 </body>
 
 </html>

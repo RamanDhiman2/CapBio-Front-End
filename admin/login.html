@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Capbio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../user/assets/style.css">
+    <link rel="stylesheet" href="assets/admin.css">
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <main class="auth-page">
+        <div class="auth-card"> 
+            <header class="auth-header">
+                <a href="../index.html" class="auth-logo">
+                </a>
+                <h2>Welcome Back</h2>
+                <p>Enter your credentials to access the admin panel.</p>
+            </header>
+
+            <form action="index.html">
+                <div class="auth-form-group">
+                    <label class="auth-label" for="email">Admin Email</label>
+                    <input type="email" id="email" class="auth-input" placeholder="admin@capbio.com" required>
+                </div>
+                <div class="auth-form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label class="auth-label" for="password">Password</label>
+                        <a href="forgot-password.html" class="auth-link" style="font-size: 0.8rem; margin-bottom: 0.5rem;">Forgot?</a>
+                    </div>
+                    <input type="password" id="password" class="auth-input" placeholder="••••••••" required>
+                </div>
+
+                <div class="auth-form-group" style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="remember" style="accent-color: var(--admin-accent);">
+                    <label class="auth-label" for="remember" style="margin-bottom: 0;">Remember me</label>
+                </div>
+
+                <button type="submit" class="primary-btn auth-btn">
+                    <span>Login to Panel</span>
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </form>
+
+            <footer class="auth-footer">
+                <p>Need a new admin account? <a href="register.html" class="auth-link">Register here</a></p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from(".auth-card", { 
+            y: 30, 
+            opacity: 0, 
+            duration: 1, 
+            ease: "power3.out" 
+        });
+    </script>
+</body>
+
+</html>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Capbio Advanced Biotech</title>
+    <title>Doctor Consultations | Capbio Advanced Biotech</title>
     <meta name="description"
-        content="Review your medicines and products in the cart before checking out safely on Capbio.">
+        content="Consult top verified doctors online. Get expert medical advice from the comfort of your home.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,172 +51,50 @@
             color: var(--accent-green);
         }
 
-        .cart-section {
-            padding: 2rem 0 6rem;
-        }
-
-        .cart-grid {
+        .consult-features {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-
-        .cart-items {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .item-info {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .item-img {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--accent-teal);
-        }
-
-        .item-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-
-        .item-details p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .item-actions {
-            display: flex;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .qty-control {
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .specialist-grid {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 1rem;
-            background: rgba(255, 255, 255, 0.03);
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .specialist-tag {
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
             border: 1px solid var(--border-glass);
             border-radius: 100px;
-            padding: 0.5rem 1rem;
-        }
-
-        .qty-btn {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 500;
             transition: var(--transition);
-        }
-
-        .qty-btn:hover {
-            color: var(--accent-teal);
-        }
-
-        .item-price {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--accent-green);
-        }
-
-        .remove-btn {
-            background: none;
-            border: none;
-            color: #ef4444;
             cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
         }
 
-        .remove-btn:hover {
-            color: #dc2626;
-            transform: scale(1.1);
-        }
-
-        /* Order Summary */
-        .order-summary {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            height: fit-content;
-            position: sticky;
-            top: 6rem;
-        }
-
-        .order-summary h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .summary-total {
-            display: flex;
-            justify-content: space-between;
-            margin: 1.5rem 0;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-glass);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-teal);
-        }
-
-        @media (max-width: 991px) {
-            .cart-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .item-actions {
-                width: 100%;
-                justify-content: space-between;
-            }
+        .specialist-tag:hover {
+            background: var(--accent-teal);
+            border-color: var(--accent-teal);
+            color: #fff;
         }
 
         /* Dropdown Styles */
@@ -307,7 +185,7 @@
             <div class="nav-actions">
                 <button class="icon-btn magnetic" aria-label="Search"><i class="ri-search-line"></i></button>
                 <a href="cart.html" class="icon-btn magnetic cart-btn" aria-label="Cart">
-                    <i class="ri-shopping-bag-3-fill" style="color: var(--accent-teal);"></i>
+                    <i class="ri-shopping-bag-3-line"></i>
                     <span class="badge">2</span>
                 </a>
                 <a href="login.html" class="icon-btn magnetic" aria-label="User Profile"><i
@@ -343,101 +221,56 @@
 
             <section class="inner-page-hero">
                 <div class="container">
-                    <h1 class="page-title gradient-text fade-up">Your Cart</h1>
+                    <h1 class="page-title gradient-text fade-up">Online Doctor Consultations</h1>
                     <div class="breadcrumb fade-up">
-                        <a href="../index.html">Home</a> <i class="ri-arrow-right-s-line"></i> <span>Shopping
-                            Cart</span>
+                        <a href="../index.html">Home</a> <i class="ri-arrow-right-s-line"></i>
+                        <span>Consultations</span>
                     </div>
                 </div>
             </section>
 
-            <section class="cart-section">
+            <section class="consultations-info">
                 <div class="container">
-                    <div class="cart-grid">
 
-                        <!-- Cart Items -->
-                        <div class="cart-items fade-up">
-
-                            <div class="cart-item">
-                                <div class="item-info">
-                                    <div class="item-img"><i class="ri-medicine-bottle-line"></i></div>
-                                    <div class="item-details">
-                                        <h4>Vitamin C Complexe</h4>
-                                        <p>Immunity Booster • 30 Capsules</p>
-                                    </div>
-                                </div>
-                                <div class="item-actions">
-                                    <div class="qty-control">
-                                        <button class="qty-btn"><i class="ri-subtract-line"></i></button>
-                                        <span>2</span>
-                                        <button class="qty-btn"><i class="ri-add-line"></i></button>
-                                    </div>
-                                    <div class="item-price">₹450</div>
-                                    <button class="remove-btn" title="Remove item"><i
-                                            class="ri-delete-bin-7-line"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="cart-item">
-                                <div class="item-info">
-                                    <div class="item-img"><i class="ri-capsule-line"></i></div>
-                                    <div class="item-details">
-                                        <h4>Antibiotic Ointment</h4>
-                                        <p>First Aid • 15g Tube</p>
-                                    </div>
-                                </div>
-                                <div class="item-actions">
-                                    <div class="qty-control">
-                                        <button class="qty-btn"><i class="ri-subtract-line"></i></button>
-                                        <span>1</span>
-                                        <button class="qty-btn"><i class="ri-add-line"></i></button>
-                                    </div>
-                                    <div class="item-price">₹120</div>
-                                    <button class="remove-btn" title="Remove item"><i
-                                            class="ri-delete-bin-7-line"></i></button>
-                                </div>
-                            </div>
-
+                    <div class="consult-features fade-up">
+                        <div class="feature-box">
+                            <i class="ri-vidicon-line"></i>
+                            <h4>Video Consultations</h4>
+                            <p class="section-desc mt-2">Face-to-face secure video calls with top specialists.</p>
                         </div>
-
-                        <!-- Order Summary -->
-                        <div class="order-summary fade-up" style="animation-delay: 0.1s;">
-                            <h3>Order Summary</h3>
-
-                            <div class="summary-row">
-                                <span>Subtotal (3 items)</span>
-                                <span>₹570.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Delivery Fee</span>
-                                <span>₹40.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Taxes</span>
-                                <span>₹28.50</span>
-                            </div>
-
-                            <div class="summary-total">
-                                <span>Total</span>
-                                <span>₹638.50</span>
-                            </div>
-
-                            <button class="primary-btn magnetic" style="width: 100%;">
-                                <span>Proceed to Checkout</span>
-                                <i class="ri-secure-payment-line"></i>
-                            </button>
-                            <a href="products.html" class="outline-btn magnetic mt-3"
-                                style="width: 100%; display: flex; justify-content: center;">
-                                Continue Shopping
-                            </a>
+                        <div class="feature-box">
+                            <i class="ri-file-list-3-line"></i>
+                            <h4>Instant E-Prescription</h4>
+                            <p class="section-desc mt-2">Get digital prescriptions right after your consultation ends.
+                            </p>
                         </div>
-
+                        <div class="feature-box">
+                            <i class="ri-shield-check-line"></i>
+                            <h4>100% Confidential</h4>
+                            <p class="section-desc mt-2">Your data and medical history are highly secured and private.
+                            </p>
+                        </div>
                     </div>
+
+                    <div class="text-center fade-up mt-5">
+                        <h2 class="mb-4">Consult Specialists Online</h2>
+                        <div class="specialist-grid">
+                            <div class="specialist-tag">General Physician</div>
+                            <div class="specialist-tag">Dermatologist</div>
+                            <div class="specialist-tag">Pediatrician</div>
+                            <div class="specialist-tag">Gynecologist</div>
+                            <div class="specialist-tag">Orthopedic</div>
+                            <div class="specialist-tag">Psychiatrist</div>
+                        </div>
+
+                        <button class="primary-btn magnetic mt-5">Book a Consultation</button>
+                    </div>
+
                 </div>
             </section>
 
             <!-- Footer -->
-            <footer id="contact" class="footer">
+            <footer id="contact" class="footer" style="margin-top: 5rem;">
                 <div class="footer-top container">
                     <div class="footer-col brand-col">
                         <a href="../index.html" class="logo footer-logo">

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapehugs | European Boutique Fashion</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        FREE SHIPPING ON ORDERS OVER $99 | NEW SPRING ARRIVALS
+    </div>
+
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="container">
+            <div class="nav-top">
+                <div class="nav-col-left">
+                    <div class="mobile-toggle d-lg-none" id="mobile-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="nav-search-trigger d-none d-lg-flex" id="search-trigger">
+                        <i class="fa-solid fa-search"></i>
+                        <span class="small fw-medium text-uppercase letter-spacing-1">Search</span>
+                    </div>
+                </div>
+
+                <div class="nav-logo"><a href="index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                </div>
+
+                <div class="nav-icons-right">
+                    <div class="search-trigger-mobile d-lg-none" id="search-trigger-mobile">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <a href="user/profile.html"><i class="fa-regular fa-user d-none d-sm-block"></i></a>
+                    <a href="user/wishlist.html" class="nav-icon-link"><i
+                            class="fa-regular fa-heart d-none d-sm-block"></i></a>
+                    <div class="cart-trigger" id="cart-trigger">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <div class="menu-mobile-header d-lg-none">
+                <span class="serif">Shapehugs</span>
+                <div id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="container">
+                <ul>
+                    <li class="has-submenu has-megamenu">
+                        <a href="user/menus/new-in.html" class="nav-link">New In</a>
+                        <div class="megamenu">
+                            <div class="megamenu-content">
+                                <div class="megamenu-col">
+                                    <h4>Trends</h4>
+                                    <ul>
+                                        <li><a href="#">Spring/Summer 2026</a></li>
+                                        <li><a href="#">The Romantic Edit</a></li>
+                                        <li><a href="#">Minimalist Chic</a></li>
+                                        <li><a href="#">Parisian Street Style</a></li>
+                                    </ul>
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Collections</h4>
+                                    <ul>
+                                        <li><a href="#">Bridal Suite</a></li>
+                                        <li><a href="#">Vacation Shop</a></li>
+                                        <li><a href="user/menus/bestsellers.html">Bestsellers</a></li>
+                                        <li><a href="user/menus/new-in.html">New Arrivals</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="user/menus/bestsellers.html" class="nav-link">Bestsellers</a></li>
+                    <li class="has-submenu has-dropdown">
+                        <a href="user/menus/dresses.html" class="nav-link">Dresses</a>
+                        <div class="submenu">
+                            <div class="submenu-container">
+                                <div class="submenu-links">
+                                    <ul>
+                                        <li><a href="#">Midi Dresses</a></li>
+                                        <li><a href="#">Maxi Dresses</a></li>
+                                        <li><a href="#">Mini Dresses</a></li>
+                                        <li><a href="#">Occasion Wear</a></li>
+                                        <li><a href="#">Summer Sale</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="user/menus/tops.html" class="nav-link">Tops</a></li>
+                    <li><a href="user/menus/bottoms.html" class="nav-link">Bottoms</a></li>
+                    <li><a href="user/menus/accessories.html" class="nav-link">Accessories</a></li>
+                    <li><a href="user/menus/sale.html" class="nav-link" style="color: #d10000;">Sale</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <div class="hero-slide active">
+                <img src="assets/images/hero.png" alt="European Fashion Collection" class="hero-img">
+                <div class="hero-content">
+                    <span class="hero-label">Seasonal Exclusive</span>
+                    <h1 class="serif">The Romantic Edit</h1>
+                    <p class="hero-description">Effortless Parisienne style for the modern woman.</p>
+                    <a href="user/menus/new-in.html" class="hero-btn">Shop Collection</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <img src="assets/images/hero2.png" alt="Spring Collection" class="hero-img">
+                <div class="hero-content">
+                    <span class="hero-label">Fresh Arrivals</span>
+                    <h1 class="serif">New Spring Arrivals</h1>
+                    <p class="hero-description">Discover the lightness of linen, lace & silk.</p>
+                    <a href="user/menus/new-in.html" class="hero-btn">Shop New In</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <img src="assets/images/hero3.png" alt="Minimalist Style" class="hero-img">
+                <div class="hero-content">
+                    <span class="hero-label">Timeless Quality</span>
+                    <h1 class="serif">Minimalist Chic</h1>
+                    <p class="hero-description">Essential pieces designed for every wardrobe.</p>
+                    <a href="user/menus/tops.html" class="hero-btn">Explore Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <div class="carousel-prev"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="carousel-next"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+        <div class="carousel-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="serif">Shop by Category</h2>
+                <p class="text-muted small text-uppercase letter-spacing-1">Find your perfect piece</p>
+            </div>
+            <div class="category-grid">
+                <a href="user/menus/dresses.html" class="category-card">
+                    <div class="category-img-wrapper">
+                        <img src="assets/images/cat_dresses.png" alt="Dresses">
+                        <div class="category-overlay">
+                            <h3 class="serif">Dresses</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="user/menus/tops.html" class="category-card">
+                    <div class="category-img-wrapper">
+                        <img src="assets/images/cat_tops.png" alt="Tops">
+                        <div class="category-overlay">
+                            <h3 class="serif">Tops</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="user/menus/bottoms.html" class="category-card">
+                    <div class="category-img-wrapper">
+                        <img src="assets/images/cat_bottoms.png" alt="Bottoms">
+                        <div class="category-overlay">
+                            <h3 class="serif">Bottoms</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="user/menus/accessories.html" class="category-card">
+                    <div class="category-img-wrapper">
+                        <img src="assets/images/cat_accessories.png" alt="Accessories">
+                        <div class="category-overlay">
+                            <h3 class="serif">Accessories</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="serif">Shop Bestsellers</h2>
+                <p class="text-muted small text-uppercase letter-spacing-1">Most loved pieces this season</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-id="1" data-name="The Sage Silk Midi" data-price="68.00"
+                    data-image="assets/images/p1.png">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">New In</span>
+                        <i class="fa-regular fa-heart wishlist-icon"></i>
+                        <img src="assets/images/p1.png" alt="Sage Green Dress">
+                        <div class="product-actions">
+                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
+                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name serif"><a href="user/product-view.html"
+                                style="color: inherit; text-decoration: none;">The Sage Silk Midi</a></h3>
+                        <p class="product-price">$68.00</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-id="2" data-name="White Lace Blouse" data-price="45.00"
+                    data-image="assets/images/p2.png">
+                    <div class="product-image-wrapper">
+                        <i class="fa-regular fa-heart wishlist-icon"></i>
+                        <img src="assets/images/p2.png" alt="Lace Blouse">
+                        <div class="product-actions">
+                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
+                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name serif"><a href="user/product-view.html"
+                                style="color: inherit; text-decoration: none;">White Lace Blouse</a></h3>
+                        <p class="product-price">$45.00</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-id="3" data-name="Pleated High-Waist Skirt" data-price="54.00"
+                    data-image="assets/images/p3.png">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">Best Seller</span>
+                        <i class="fa-regular fa-heart wishlist-icon"></i>
+                        <img src="assets/images/p3.png" alt="Pleated Skirt">
+                        <div class="product-actions">
+                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
+                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name serif"><a href="user/product-view.html"
+                                style="color: inherit; text-decoration: none;">Pleated High-Waist Skirt</a></h3>
+                        <p class="product-price">$54.00</p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-id="4" data-name="Vintage Floral Dress" data-price="72.00"
+                    data-image="assets/images/hero.png">
+                    <div class="product-image-wrapper">
+                        <i class="fa-regular fa-heart wishlist-icon"></i>
+                        <img src="assets/images/hero.png" alt="Floral Dress">
+                        <div class="product-actions">
+                            <button class="action-btn quick-view"><i class="fa-regular fa-eye"></i> Quick View</button>
+                            <button class="action-btn add-to-cart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name serif"><a href="user/product-view.html"
+                                style="color: inherit; text-decoration: none;">Vintage Floral Dress</a></h3>
+                        <p class="product-price">$72.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Section -->
+    <section class="lookbook-section">
+        <div class="lookbook-image">
+            <img src="assets/images/hero2.png" alt="Summer Lookbook">
+        </div>
+        <div class="lookbook-content">
+            <div class="lookbook-text">
+                <span class="text-uppercase letter-spacing-2 small fw-medium">The Visual Story</span>
+                <h2 class="serif">Summer Lookbook 2026</h2>
+                <p>Inspired by the golden hours of the Mediterranean coast. Discover effortless elegance in every
+                    stitch.</p>
+                <a href="user/menus/new-in.html" class="btn-underline">View Lookbook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping / Benefits -->
+    <section class="section-benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h4>Free shipping</h4>
+                    <p>On all orders over $99</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-rotate"></i>
+                    <h4>Easy Returns</h4>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h4>Sustainable</h4>
+                    <p>Eco-friendly packaging</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <h4>Secure Payment</h4>
+                    <p>100% secure checkout</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="nav-logo"
+                        style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
+                        <a href="index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                    </h4>
+                    <p>European boutique fashion for the modern woman. Effortless, romantic, and timeless.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="user/footer/about-us.html">About Us</a></li>
+                        <li><a href="user/footer/our-story.html">Our Story</a></li>
+                        <li><a href="user/footer/sustainability.html">Sustainability</a></li>
+                        <li><a href="user/footer/press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="user/footer/contact-us.html">Contact Us</a></li>
+                        <li><a href="user/footer/shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="user/footer/returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="user/footer/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="user/footer/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="user/footer/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="user/footer/cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Join the list</h4>
+                    <p>Subscribe for early access and styling tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shapehugs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Search for products, categories..."
+                    autocomplete="off">
+                <div class="search-line"></div>
+            </div>
+            <div class="search-results-container" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP for smooth reveal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2 class="serif">Your Bag</h2>
+            <div class="cart-close" id="cart-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="cart-items-wrapper">
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be injected here -->
+                <div class="empty-cart-message">
+                    <p>Your bag is currently empty.</p>
+                    <a href="user/menus/new-in.html" class="btn-underline">Shop New Arrivals</a>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cart-total-amount">$0.00</span>
+            </div>
+            <a href="user/cart.html" class="checkout-btn"
+                style="text-decoration: none; text-align: center; display: block;">Proceed to Checkout</a>
+            <p class="cart-shipping-note">Free shipping & returns on all orders over $99.</p>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quick-view-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

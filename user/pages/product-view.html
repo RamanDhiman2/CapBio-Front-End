@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Shapehugs</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .product-view-container {
+            padding: 80px 0;
+        }
+
+        .product-view-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 2px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .thumbnail.active,
+        .thumbnail:hover {
+            opacity: 1;
+        }
+
+        .product-details-content {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--muted-text);
+        }
+
+        .product-title {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .product-price-large {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .product-selection {
+            margin-bottom: 40px;
+        }
+
+        .selector-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .size-grid {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .size-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border-color);
+            background: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .size-btn:hover,
+        .size-btn.active {
+            background: var(--text-color);
+            color: #fff;
+            border-color: var(--text-color);
+        }
+
+        .add-to-bag-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--text-color);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .add-to-bag-btn:hover {
+            background: #444;
+        }
+
+        .wishlist-btn-view {
+            width: 100%;
+            padding: 15px;
+            background: none;
+            border: 1px solid var(--border-color);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .wishlist-btn-view:hover {
+            background: var(--hover-bg);
+        }
+
+        .product-tabs {
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tab-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tab-header h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .tab-item.active .tab-content {
+            display: block;
+        }
+
+        .tab-item.active .fa-plus::before {
+            content: "\f068";
+        }
+
+        @media (max-width: 991px) {
+            .product-view-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-details-content {
+                position: static;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-title {
+                font-size: 32px;
+            }
+            .product-view-container {
+                padding: 40px 0;
+            }
+            .reviews-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .size-grid {
+                flex-wrap: wrap;
+            }
+            .thumbnail-grid {
+                gap: 10px;
+            }
+        }
+
+        /* Reviews Section Styles */
+        .reviews-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+            background-color: #fdfcfb;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avg-rating {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .stars-container {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .review-card {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--muted-text);
+        }
+
+        .review-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* Chat Widget Styles */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-trigger {
+            width: 60px;
+            height: 60px;
+            background: var(--text-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .chat-trigger:hover {
+            transform: translateY(-5px);
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-header {
+            padding: 20px;
+            background: var(--text-color);
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .chat-footer {
+            padding: 15px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .chat-send {
+            padding: 10px 15px;
+            background: var(--text-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        FREE SHIPPING ON ORDERS OVER $99 | NEW SPRING ARRIVALS
+    </div>
+
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="container">
+            <div class="nav-top">
+                <div class="nav-col-left">
+                    <div class="mobile-toggle d-lg-none" id="mobile-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="nav-search-trigger d-none d-lg-flex" id="search-trigger">
+                        <i class="fa-solid fa-search"></i>
+                        <span class="small fw-medium text-uppercase letter-spacing-1">Search</span>
+                    </div>
+                    <a href="../../index.html" class="nav-back d-none d-sm-flex"><i
+                            class="fa-solid fa-arrow-left me-2"></i> Back to Shop</a>
+                </div>
+
+                <div class="nav-logo"><a href="../../index.html"
+                        style="color: inherit; text-decoration: none;">Shapehugs</a></div>
+
+                <div class="nav-icons-right">
+                    <div class="search-trigger-mobile d-lg-none" id="search-trigger-mobile">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <a href="../profile.html"><i class="fa-regular fa-user"></i></a>
+                    <a href="../wishlist.html"><i class="fa-regular fa-heart"></i></a>
+                    <div class="cart-trigger" id="cart-trigger">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-view-container">
+        <div class="container">
+            <div class="product-view-grid">
+                <!-- Gallery -->
+                <div class="product-gallery">
+                    <img src="../../assets/images/hero.png" alt="Main Product" class="main-image"
+                        id="main-product-image">
+                    <div class="thumbnail-grid">
+                        <img src="../../assets/images/hero.png" alt="Thumb 1" class="thumbnail active">
+                        <img src="../../assets/images/hero2.png" alt="Thumb 2" class="thumbnail">
+                        <img src="../../assets/images/p1.png" alt="Thumb 3" class="thumbnail">
+                        <img src="../../assets/images/p2.png" alt="Thumb 4" class="thumbnail">
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="product-details-content">
+                    <div class="breadcrumb">Home / Dresses / Summer Collection</div>
+                    <h1 class="serif product-title">Luxe Silk Wrap Dress</h1>
+                    <div class="product-price-large">$189.00</div>
+
+                    <div class="product-selection">
+                        <span class="selector-label">Size</span>
+                        <div class="size-grid">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+
+                        <span class="selector-label">Color: Champagne</span>
+                        <div class="color-grid" style="display: flex; gap: 10px; margin-bottom: 30px;">
+                            <div
+                                style="width: 30px; height: 30px; background: #f3e5ab; border-radius: 50%; cursor: pointer; border: 2px solid #000;">
+                            </div>
+                            <div
+                                style="width: 30px; height: 30px; background: #e0e0e0; border-radius: 50%; cursor: pointer; border: 2px solid transparent;">
+                            </div>
+                            <div
+                                style="width: 30px; height: 30px; background: #333; border-radius: 50%; cursor: pointer; border: 2px solid transparent;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="add-to-bag-btn">Add to Bag</button>
+                    <button class="wishlist-btn-view"><i class="fa-regular fa-heart"></i> Add to Wishlist</button>
+
+                    <div class="product-tabs">
+                        <div class="tab-item active">
+                            <div class="tab-header">
+                                <h4>Description</h4>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="tab-content" style="display: block;">
+                                <p>A timeless wrap silhouette crafted from 100% premium mulberry silk. This dress offers
+                                    a flattering fit with adjustable waist ties and a delicate midi-length hem. Perfect
+                                    for evening events or elevated daytime wear.</p>
+                                <ul style="margin-top: 15px; padding-left: 20px;">
+                                    <li>100% Mulberry Silk</li>
+                                    <li>Adjustable waist tie</li>
+                                    <li>Midi length</li>
+                                    <li>Dry clean only</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-item">
+                            <div class="tab-header">
+                                <h4>Details & Fit</h4>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="tab-content">
+                                <ul style="padding-left: 20px;">
+                                    <li>Fits true to size, take your normal size</li>
+                                    <li>Model is 175cm/ 5'9" and is wearing a size Small</li>
+                                    <li>Mid-weight, non-stretchy fabric</li>
+                                    <li>Concealed zip fastening along side</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-item">
+                            <div class="tab-header">
+                                <h4>Shipping & Returns</h4>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="tab-content">
+                                <p>Complimentary standard shipping on all orders over $99. Returns are accepted within
+                                    30 days of delivery for a full refund or exchange. Items must be unworn and in
+                                    original packaging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="reviews-header">
+                    <div>
+                        <h2 class="serif mb-2">Customer Reviews</h2>
+                        <div class="rating-summary">
+                            <span class="avg-rating">4.8</span>
+                            <div>
+                                <div class="stars-container">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <span class="small text-muted">Based on 24 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline" style="padding: 12px 25px; border: 1px solid #000; background: none; font-size: 12px; font-weight: 700; text-transform: uppercase; cursor: pointer;">Write A Review</button>
+                </div>
+
+                <div class="reviews-list">
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div>
+                                <div class="stars-container small mb-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="review-author">Elena M.</span>
+                            </div>
+                            <span class="review-date">March 10, 2026</span>
+                        </div>
+                        <p class="review-text">Absolutely stunning dress. The silk quality is top-notch and the champagne color is even more beautiful in person. Received so many compliments!</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div>
+                                <div class="stars-container small mb-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <span class="review-author">Sarah L.</span>
+                            </div>
+                            <span class="review-date">February 28, 2026</span>
+                        </div>
+                        <p class="review-text">Beautiful design. It runs slightly large around the waist, but the wrap style allows for adjustment. Great for special occasions.</p>
+                    </div>
+                </div>
+                
+                <div class="comment-section mt-5" style="margin-top: 50px;">
+                    <h4 class="serif mb-4">Leave a Comment</h4>
+                    <form>
+                        <textarea placeholder="Share your thoughts..." style="width: 100%; height: 100px; padding: 15px; border: 1px solid var(--border-color); margin-bottom: 20px; font-family: inherit; outline: none;"></textarea>
+                        <button type="submit" class="add-to-bag-btn" style="width: auto; padding: 12px 40px;">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title text-center mb-5" style="text-align: center; margin-bottom: 50px;">
+                    <h2 class="serif">Frequently Asked Questions</h2>
+                    <p class="text-muted small text-uppercase letter-spacing-1">Everything you need to know about the product</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is the material composition?
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>This dress is made from 100% genuine mulberry silk. It has a high-grade silk weight (19 momme) which provides a luxurious drape and durability while remaining lightweight and breathable.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How should I care for this silk dress?
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We highly recommend professional dry cleaning to maintain the silk's luster and shape. If necessary, you can hand wash in cold water using a dedicated silk detergent, but avoid wringing and dry flat in shade.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is the dress true to size?
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, most of our customers find it fits true to size. However, as it is a wrap style, there is some flexibility. If you're between sizes, we recommend sizing down for a more fitted look.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Does it come with a slip?
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The silk is opaque enough that a slip is not required for the Champagne and darker colors. For lighter colors or a more structured feel, you may prefer to wear a nude seamless slip underneath.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-trigger" id="chat-trigger-btn">
+            <i class="fa-solid fa-comments"></i>
+        </div>
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <span>Shapehugs Concierge</span>
+                <i class="fa-solid fa-xmark" style="cursor: pointer;" id="chat-close-btn"></i>
+            </div>
+            <div class="chat-body">
+                <div style="background: #fff; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; max-width: 85%;">
+                    Hello! How can I help you regarding the Luxe Silk Wrap Dress today?
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" class="chat-input" placeholder="Type your message...">
+                <button class="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="nav-logo"
+                        style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
+                        <a href="../../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                    </h4>
+                    <p>European boutique fashion for the modern woman. Effortless, romantic, and timeless.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Join the list</h4>
+                    <p>Subscribe for early access and styling tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shapehugs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Search for products, categories..."
+                    autocomplete="off">
+                <div class="search-line"></div>
+            </div>
+            <div class="search-results-container" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        // Simple Tab Logic
+        document.querySelectorAll('.tab-header').forEach(header => {
+            header.onclick = () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            };
+        });
+
+        // Thumbnail Swap
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.onclick = () => {
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                document.getElementById('main-product-image').src = thumb.src;
+            };
+        });
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.onclick = () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+                const icon = q.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            };
+        });
+
+        // Chat Widget Logic
+        const chatTrigger = document.getElementById('chat-trigger-btn');
+        const chatWindow = document.getElementById('chat-window');
+        const chatClose = document.getElementById('chat-close-btn');
+
+        chatTrigger.onclick = () => {
+            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+        };
+
+        chatClose.onclick = () => {
+            chatWindow.style.display = 'none';
+        };
+    </script>
+</body>
+
+</html>

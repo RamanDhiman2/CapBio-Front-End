@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | Shapehugs European Boutique Fashion</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        FREE SHIPPING ON ORDERS OVER $99 | NEW SPRING ARRIVALS
+    </div>
+
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="container">
+            <div class="nav-top">
+                <div class="nav-col-left">
+                    <div class="mobile-toggle d-lg-none" id="mobile-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="nav-search-trigger d-none d-lg-flex" id="search-trigger">
+                        <i class="fa-solid fa-search"></i>
+                        <span class="small fw-medium text-uppercase letter-spacing-1">Search</span>
+                    </div>
+                    <a href="../index.html" class="nav-back d-none d-sm-flex"><i class="fa-solid fa-arrow-left me-2"></i> Back to Shop</a>
+                </div>
+                <div class="nav-logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                </div>
+                <div class="nav-icons-right">
+                    <div class="search-trigger-mobile d-lg-none" id="search-trigger-mobile">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <a href="profile.html"><i class="fa-regular fa-user"></i></a>
+                    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+                    <div class="cart-trigger" id="cart-trigger">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <div class="menu-mobile-header d-lg-none">
+                <span class="serif">Shapehugs</span>
+                <div id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="container">
+                <ul>
+                    <li class="has-submenu has-megamenu">
+                        <a href="menus/new-in.html" class="nav-link">New In</a>
+                        <div class="megamenu">
+                            <div class="megamenu-content">
+                                <div class="megamenu-col">
+                                    <h4>Trends</h4>
+                                    <ul>
+                                        <li><a href="#">Spring/Summer 2026</a></li>
+                                        <li><a href="#">The Romantic Edit</a></li>
+                                        <li><a href="#">Minimalist Chic</a></li>
+                                        <li><a href="#">Parisian Street Style</a></li>
+                                    </ul>
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Collections</h4>
+                                    <ul>
+                                        <li><a href="#">Bridal Suite</a></li>
+                                        <li><a href="#">Vacation Shop</a></li>
+                                        <li><a href="menus/bestsellers.html">Bestsellers</a></li>
+                                        <li><a href="menus/new-in.html">New Arrivals</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="menus/bestsellers.html" class="nav-link">Bestsellers</a></li>
+                    <li class="has-submenu has-dropdown">
+                        <a href="menus/dresses.html" class="nav-link">Dresses</a>
+                        <div class="submenu">
+                            <div class="submenu-container">
+                                <div class="submenu-links">
+                                    <ul>
+                                        <li><a href="#">Midi Dresses</a></li>
+                                        <li><a href="#">Maxi Dresses</a></li>
+                                        <li><a href="#">Mini Dresses</a></li>
+                                        <li><a href="#">Occasion Wear</a></li>
+                                        <li><a href="#">Summer Sale</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="menus/tops.html" class="nav-link">Tops</a></li>
+                    <li><a href="menus/bottoms.html" class="nav-link">Bottoms</a></li>
+                    <li><a href="menus/accessories.html" class="nav-link">Accessories</a></li>
+                    <li><a href="menus/sale.html" class="nav-link" style="color: #d10000;">Sale</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <div class="page-header text-center">
+                <h1 class="serif">Your Shopping Bag</h1>
+                <p class="text-muted small text-uppercase letter-spacing-1">Review your selections</p>
+            </div>
+
+            <div class="cart-layout">
+                <!-- Main Cart Column -->
+                <div class="cart-items-column">
+                    <table class="cart-table" id="full-cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="full-cart-body">
+                            <!-- Items injected by JS -->
+                            <tr>
+                                <td class="cart-product">
+                                    <img src="../assets/images/p1.png" alt="Product">
+                                    <div>
+                                        <h3 class="serif">The Sage Silk Midi</h3>
+                                        <p class="text-muted small">Size: M</p>
+                                        <p class="fw-bold">$68.00</p>
+                                    </div>
+                                </td>
+                                <td data-label="Quantity">
+                                    <div class="cart-qty-input-wrapper">
+                                        <input type="number" value="1" min="1" class="cart-qty-input">
+                                    </div>
+                                </td>
+                                <td data-label="Total" class="fw-bold">$68.00</td>
+                                <td class="text-end">
+                                    <button class="cart-item-remove-btn"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="cart-notices mt-5"
+                        style="margin-top: 40px; padding: 30px; background: #fbf9f7; border-radius: 4px;">
+                        <p class="small text-muted mb-0"><i class="fa-solid fa-truck-fast me-2"></i> Only
+                            <strong>$31.00</strong> more to unlock <strong>Free Shipping</strong>!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Summary Column -->
+                <div class="cart-summary-column">
+                    <div class="cart-summary-card">
+                        <h2 class="serif mb-4" style="font-size: 24px;">Order Summary</h2>
+                        <div class="cart-summary-row">
+                            <span>Subtotal</span>
+                            <span id="full-cart-subtotal">$68.00</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Estimated Shipping</span>
+                            <span>FREE</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Estimated Tax</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="cart-summary-row cart-summary-total">
+                            <span>Total</span>
+                            <span id="full-cart-total">$68.00</span>
+                        </div>
+
+                        <div class="promo-code mt-4" style="margin: 25px 0;">
+                            <label class="small text-uppercase fw-bold mb-2 d-block">Promo Code</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" placeholder="Enter code"
+                                    style="flex: 1; padding: 10px; border: 1px solid var(--border-color);">
+                                <button
+                                    style="padding: 10px 20px; background: var(--text-color); color: #fff; border: none; font-size: 11px; text-transform: uppercase;">Apply</button>
+                            </div>
+                        </div>
+
+                        <a href="checkout.html" class="checkout-btn" style="width: 100%; text-align: center; text-decoration: none;">Checkout Now</a>
+
+                        <div class="payment-icons mt-4"
+                            style="text-align: center; margin-top: 30px; opacity: 0.5; display: flex; justify-content: center; gap: 15px; font-size: 24px;">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-amex"></i>
+                            <i class="fa-brands fa-cc-apple-pay"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="nav-logo"
+                        style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
+                        <a href="../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+                    </h4>
+                    <p>European boutique fashion for the modern woman. Effortless, romantic, and timeless.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="footer/about-us.html">About Us</a></li>
+                        <li><a href="footer/our-story.html">Our Story</a></li>
+                        <li><a href="footer/sustainability.html">Sustainability</a></li>
+                        <li><a href="footer/press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="footer/contact-us.html">Contact Us</a></li>
+                        <li><a href="footer/shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="footer/returns-exchanges.html">Returns & Exchanges</a></li>
+                        <li><a href="footer/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="footer/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="footer/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="footer/cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Join the list</h4>
+                    <p>Subscribe for early access and styling tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shapehugs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Search for products, categories..."
+                    autocomplete="off">
+                <div class="search-line"></div>
+            </div>
+            <div class="search-results-container" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP for smooth reveal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2 class="serif">Your Bag</h2>
+            <div class="cart-close" id="cart-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="cart-items-wrapper">
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart-message">
+                    <p>Your bag is currently empty.</p>
+                    <a href="menus/new-in.html" class="btn-underline">Shop New Arrivals</a>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cart-total-amount">$0.00</span>
+            </div>
+            <a href="cart.html" class="checkout-btn"
+                style="text-decoration: none; text-align: center; display: block;">Proceed to Checkout</a>
+            <p class="cart-shipping-note">Free shipping & returns on all orders over $99.</p>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quick-view-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GSAP Revel
+        gsap.from(".cart-page > *", {
+            duration: 1.2,
+            opacity: 0,
+            y: 40,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+
+</html>

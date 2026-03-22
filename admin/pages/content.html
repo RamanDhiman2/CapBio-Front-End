@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Content | Shapehugs Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        :root { --sidebar-width: 260px; }
+        body { background-color: #fbf9f7; display: flex; min-height: 100vh; overflow-x: hidden; }
+        .sidebar { width: var(--sidebar-width); background: #fff; height: 100vh; position: fixed; left: 0; top: 0; border-right: 1px solid var(--border-color); padding: 30px; z-index: 100; display: flex; flex-direction: column; }
+        .sidebar-logo { font-size: 24px; letter-spacing: 4px; font-weight: 700; margin-bottom: 50px; color: var(--text-color); display: block; text-align: center; }
+        .nav-list { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+        .nav-item a { display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: var(--muted-text); border-radius: 4px; font-size: 14px; font-weight: 500; transition: var(--transition); }
+        .nav-item a:hover, .nav-item a.active { background: #fbf9f7; color: var(--accent-color); }
+        .nav-item a i { width: 20px; text-align: center; }
+        .main-content { flex: 1; margin-left: var(--sidebar-width); padding: 40px; }
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        
+        .content-group { margin-bottom: 40px; }
+        .group-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--muted-text); text-transform: uppercase; letter-spacing: 1px; }
+        .pages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .page-card { background: #fff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); transition: transform 0.3s; display: flex; justify-content: space-between; align-items: center; }
+        .page-card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+        .page-info h4 { font-size: 16px; margin-bottom: 5px; }
+        .page-info p { font-size: 12px; color: var(--muted-text); margin: 0; }
+        .edit-icon { color: var(--text-color); width: 30px; height: 30px; border-radius: 50%; background: #fbf9f7; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .page-card:hover .edit-icon { background: var(--text-color); color: #fff; }
+
+        /* Dropdown Styles */
+        .dropdown-menu { display: none; flex-direction: column; gap: 2px; margin-top: 5px; padding-left: 0; }
+        .dropdown-menu li a { padding: 8px 15px 8px 50px !important; font-size: 13px; font-weight: 400; background: transparent !important; }
+        .dropdown-menu li a:hover { color: var(--accent-color) !important; transform: translateX(5px); }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="../index.html" class="sidebar-logo serif">SHAPEHUGS</a>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li class="nav-item">
+                <a href="products.html" class="dropdown-toggle" style="justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 15px;"><i class="fa-solid fa-box-open"></i> Products</div>
+                    <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="draft-products.html">Draft Products</a></li>
+                    <li><a href="published-products.html">Published Products</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="dropdown-toggle" style="justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 15px;"><i class="fa-solid fa-layer-group"></i> Categories</div>
+                    <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="categories.html">Manage Categories</a></li>
+                    <li><a href="products.html">Dresses</a></li>
+                    <li><a href="products.html">Tops</a></li>
+                    <li><a href="products.html">Bottoms</a></li>
+                    <li><a href="products.html">Accessories</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="orders.html"><i class="fa-solid fa-cart-shopping"></i> Orders</a></li>
+            <li class="nav-item"><a href="customers.html"><i class="fa-solid fa-users"></i> Customers</a></li>
+            <li class="nav-item"><a href="inbox.html"><i class="fa-solid fa-envelope"></i> Inbox</a></li>
+            <li class="nav-item"><a href="faqs.html"><i class="fa-solid fa-circle-question"></i> FAQs</a></li>
+            <li class="nav-item"><a href="content.html" class="active"><i class="fa-solid fa-file-lines"></i> Content</a></li>
+            <li class="nav-item"><a href="lookbook.html"><i class="fa-regular fa-image"></i> Lookbook</a></li>
+            <li class="nav-item"><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+        <div style="margin-top: auto;">
+            <a href="profile.html" style="display: flex; align-items: center; gap: 12px; padding: 15px; text-decoration: none; border-top: 1px solid var(--border-color); margin-top: 10px;">
+                <div class="user-avatar" style="width: 32px; height: 32px; font-size: 12px; min-width: 32px; background: var(--accent-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">JD</div>
+                <div>
+                    <div style="font-weight: 600; font-size: 13px; color: var(--text-color);">Jane Doe</div>
+                    <div style="font-size: 11px; color: var(--muted-text);">Super Admin</div>
+                </div>
+            </a>
+            <div class="nav-item">
+                <a href="../index.html" style="color: #d10000; padding: 12px 15px; display: flex; align-items: center; gap: 15px; font-size: 14px; font-weight: 500; text-decoration: none;"><i class="fa-solid fa-arrow-right-from-bracket" style="width: 20px; text-align: center;"></i> Logout</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fa-solid fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 24px; cursor: pointer;"></i>
+                <h1 class="serif" style="font-size: 28px; margin: 0;">Content Pages</h1>
+            </div>
+        </div>
+
+        <div class="content-group">
+            <h3 class="group-title">Company</h3>
+            <div class="pages-grid">
+                <a href="edit-content.html?page=about-us" class="page-card">
+                    <div class="page-info">
+                        <h4>About Us</h4>
+                        <p>Last updated: Mar 10, 2026</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=our-story" class="page-card">
+                    <div class="page-info">
+                        <h4>Our Story</h4>
+                        <p>Last updated: Feb 28, 2026</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=sustainability" class="page-card">
+                    <div class="page-info">
+                        <h4>Sustainability</h4>
+                        <p>Last updated: Jan 15, 2026</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=press" class="page-card">
+                    <div class="page-info">
+                        <h4>News & Press</h4>
+                        <p>Last updated: Mar 12, 2026</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-group">
+            <h3 class="group-title">Customer Service</h3>
+            <div class="pages-grid">
+                <a href="edit-content.html?page=shipping" class="page-card">
+                    <div class="page-info">
+                        <h4>Shipping Policy</h4>
+                        <p>Last updated: Dec 10, 2025</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=returns" class="page-card">
+                    <div class="page-info">
+                        <h4>Returns & Exchanges</h4>
+                        <p>Last updated: Dec 10, 2025</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-group">
+            <h3 class="group-title">Legal</h3>
+            <div class="pages-grid">
+                <a href="edit-content.html?page=terms" class="page-card">
+                    <div class="page-info">
+                        <h4>Terms of Use</h4>
+                        <p>Last updated: Nov 01, 2025</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=privacy" class="page-card">
+                    <div class="page-info">
+                        <h4>Privacy Policy</h4>
+                        <p>Last updated: Nov 01, 2025</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+                <a href="edit-content.html?page=cookies" class="page-card">
+                    <div class="page-info">
+                        <h4>Cookies</h4>
+                        <p>Last updated: Nov 01, 2025</p>
+                    </div>
+                    <div class="edit-icon"><i class="fa-solid fa-pen"></i></div>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Dropdown Toggle Logic (Reused)
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = toggle.parentElement;
+                const menu = parent.querySelector('.dropdown-menu');
+                const icon = toggle.querySelector('.fa-chevron-down');
+                if (menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                    gsap.to(icon, { rotation: 0, duration: 0.3 });
+                } else {
+                    menu.style.display = 'flex';
+                    gsap.to(icon, { rotation: 180, duration: 0.3 });
+                }
+            });
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar') || document.querySelector('.admin-sidebar');
+        if (sidebar && mobileBtn) {
+            const overlay = document.createElement('div');
+            overlay.className = 'admin-sidebar-overlay';
+            document.body.appendChild(overlay);
+
+            const closeBtn = document.createElement('i');
+            closeBtn.className = 'fa-solid fa-xmark d-lg-none';
+            closeBtn.style.cssText = 'position: absolute; top: 30px; right: 30px; font-size: 24px; cursor: pointer; color: var(--text-color); transition: 0.3s;';
+            sidebar.appendChild(closeBtn);
+
+            const openMenu = () => { sidebar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+            const closeMenu = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; };
+
+            mobileBtn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+        }
+    </script>
+</body>
+</html>

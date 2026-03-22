@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | Shapehugs</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .footer-page-container {
+            padding: 100px 0;
+            min-height: 80vh;
+        }
+
+        .footer-page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .footer-page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .footer-page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .footer-page-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .footer-page-content p {
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-page-header h1 {
+                font-size: 36px;
+            }
+            .footer-page-container {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="container">
+            <div class="nav-top">
+                <div class="nav-col-left">
+                    <a href="../../index.html" class="nav-logo" style="position: static; transform: none;"><a href="../../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a></a>
+                </div>
+                <div class="nav-icons-right">
+                    <a href="../../index.html" class="small text-uppercase fw-bold text-decoration-none letter-spacing-1"><i class="fa-solid fa-arrow-left me-2"></i> Back to Shop</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="footer-page-container">
+        <div class="container">
+            <div class="footer-page-header">
+                <h1 class="serif">Terms of Use</h1>
+                <p class="text-muted small text-uppercase letter-spacing-1">Effective Date: March 12, 2026</p>
+            </div>
+
+            <div class="footer-page-content">
+                <p>Welcome to <strong>Shapehugs</strong>. These Terms of Use govern your access to and use of our website and services. By using our website, you agree to comply with and be bound by these terms. Please read them carefully.</p>
+
+                <h2 class="serif">Use of Our Website</h2>
+                <p>You may use our website for personal, non-commercial purposes only. You agree not to use the website for any unlawful purpose or in any way that could damage, disable, or impair the site's functionality.</p>
+
+                <h2 class="serif">Intellectual Property</h2>
+                <p>All content on this website, including text, graphics, logos, images, and software, is the property of Shapehugs or its licensors and is protected by copyright and trademark laws. You may not reproduce, distribute, or display any part of our website without our prior written consent.</p>
+
+                <h2 class="serif">User Accounts</h2>
+                <p>When you create an account with us, you are responsible for maintaining the confidentiality of your account information and password. You agree to notify us immediately of any unauthorized use of your account.</p>
+
+                <h2 class="serif">Product & Pricing</h2>
+                <p>We strive to display our products as accurately as possible. However, we do not guarantee that product descriptions, prices, or other content on our website are error-free. We reserve the right to correct any errors and to change or update information at any time without prior notice.</p>
+
+                <h2 class="serif">Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Shapehugs shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use of our website or the purchase of any products.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer style="padding: 60px 0; border-top: 1px solid var(--border-color); background: #fff;">
+        <div class="container text-center">
+            <h4 class="nav-logo" style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
+                <a href="../../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+            </h4>
+            <p class="small text-muted">&copy; 2026 Shapehugs. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP for smooth reveal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from(".footer-page-header > *", {
+            duration: 1.2,
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+        gsap.from(".footer-page-content", {
+            duration: 1.5,
+            opacity: 0,
+            y: 50,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+
+</html>

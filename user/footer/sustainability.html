@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability | Shapehugs</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .footer-page-container {
+            padding: 100px 0;
+            min-height: 80vh;
+        }
+
+        .footer-page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .footer-page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .footer-page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .footer-page-content h2 {
+            font-size: 28px;
+            margin: 40px 0 20px;
+            color: var(--text-color);
+        }
+
+        .footer-page-content p {
+            margin-bottom: 25px;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .sustainability-card {
+            padding: 30px;
+            background: #fbf9f7;
+            border-radius: 8px;
+        }
+
+        .sustainability-card i {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .sustainability-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-page-header h1 {
+                font-size: 36px;
+            }
+            .sustainability-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-page-container {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="container">
+            <div class="nav-top">
+                <div class="nav-col-left">
+                    <a href="../../index.html" class="nav-logo" style="position: static; transform: none;"><a href="../../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a></a>
+                </div>
+                <div class="nav-icons-right">
+                    <a href="../../index.html" class="small text-uppercase fw-bold text-decoration-none letter-spacing-1"><i class="fa-solid fa-arrow-left me-2"></i> Back to Shop</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="footer-page-container">
+        <div class="container">
+            <div class="footer-page-header">
+                <h1 class="serif">Our Commitment to Sustainability</h1>
+                <p class="text-muted small text-uppercase letter-spacing-1">Style with a conscience</p>
+            </div>
+
+            <div class="footer-page-content">
+                <p>At <strong>Shapehugs</strong>, we believe that fashion should not come at the cost of our planet. Our commitment to sustainability is at the core of our business, influencing every decision we make from the materials we source to the way we package our products.</p>
+
+                <div class="sustainability-grid">
+                    <div class="sustainability-card">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h3 class="serif">Eco-Friendly Materials</h3>
+                        <p>We prioritize organic cotton, recycled polyester, and sustainably sourced silk to ensure our pieces are as kind to the earth as they are to your skin.</p>
+                    </div>
+                    <div class="sustainability-card">
+                        <i class="fa-solid fa-hands-holding"></i>
+                        <h3 class="serif">Ethical Production</h3>
+                        <p>We partner with artisans and manufacturers who provide fair wages, safe working environments, and uphold the highest standard of labor practices.</p>
+                    </div>
+                    <div class="sustainability-card">
+                        <i class="fa-solid fa-box-open"></i>
+                        <h3 class="serif">Plastic-Free Packaging</h3>
+                        <p>Our shipping materials are 100% recyclable and compostable. We have removed all single-use plastics from our supply chain.</p>
+                    </div>
+                    <div class="sustainability-card">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <h3 class="serif">Slow Fashion</h3>
+                        <p>We reject the trend-driven cycle of fast fashion, focusing instead on creating high-quality, timeless designs that are built to last a lifetime.</p>
+                    </div>
+                </div>
+
+                <h2 class="serif">Looking Ahead</h2>
+                <p>Sustainability is a journey, not a destination. We are continuously searching for new ways to reduce our carbon footprint and improve our processes. By 2030, we aim to be a carbon-neutral brand, ensuring a beautiful world for the next generation of modern women.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer style="padding: 60px 0; border-top: 1px solid var(--border-color); background: #fff;">
+        <div class="container text-center">
+            <h4 class="nav-logo" style="position: static; transform: none; font-size: 20px; margin-bottom: 20px;">
+                <a href="../../index.html" style="color: inherit; text-decoration: none;">Shapehugs</a>
+            </h4>
+            <p class="small text-muted">&copy; 2026 Shapehugs. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP for smooth reveal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from(".footer-page-header > *", {
+            duration: 1.2,
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+        gsap.from(".sustainability-card", {
+            duration: 1.2,
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            delay: 0.5,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+
+</html>
